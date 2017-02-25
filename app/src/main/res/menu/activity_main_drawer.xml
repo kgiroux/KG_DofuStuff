@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_qrcode"
+            android:icon="@drawable/ic_menu_qrcode_scan"
+            android:title="@string/QrCode" />
+
+        <item
+            android:id="@+id/nav_add"
+            android:icon="@drawable/ic_menu_account_plus"
+            android:title="@string/createACharacter" />
+
+        <item
+            android:id="@+id/nav_load"
+            android:icon="@drawable/ic_menu_account_multiple"
+            android:title="@string/loadACharacter" />
+
+        <item
+            android:id="@+id/nav_almanax"
+            android:icon="@drawable/ic_menu_calendar_today"
+            android:title="@string/Almanax" />
+
+        <item
+            android:id="@+id/nav_encyclopedie"
+            android:icon="@drawable/ic_menu_book_open_page_variant"
+            android:title="@string/Encyclopedie" />
+
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/Tools" />
+
+        <item
+            android:id="@+id/nav_lock"
+            android:icon="@drawable/ic_menu_lock"
+            android:title="@string/Tools" />
+
+    </group>
+
+    <item android:title="@string/Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/Send" />
+        </menu>
+    </item>
+
+</menu>

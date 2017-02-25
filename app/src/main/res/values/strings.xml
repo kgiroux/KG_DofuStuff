@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">DofuStuff</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_create">CreateActivity</string>
+    <string name="level">level</string>
+    <string name="characterName">Character\'s Name</string>
+    <string name="nbCaracteristicAvailable">Caracteristic\'s point available</string>
+
+    <string-array name="classGame">
+        <item>Cra</item>
+        <item>Ecaflip</item>
+        <item>Eliotrope</item>
+        <item>Eniripsa</item>
+        <item>Enutrof</item>
+        <item>Féca</item>
+        <item>Huppermage</item>
+        <item>Iop</item>
+        <item>Osamodas</item>
+        <item>Pandawa</item>
+        <item>Roublard</item>
+        <item>Sacrieur</item>
+        <item>Sadida</item>
+        <item>Sram</item>
+        <item>Steamer</item>
+        <item>Xelor</item>
+        <item>Zobal</item>
+    </string-array>
+    <string name="title_activity_character_information">CharacterInformationActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="create">Create</string>
+    <string name="caracteristicTitle">Caracteristic</string>
+    <string name="strength">Strength</string>
+    <string name="sagesse">Wisdom</string>
+    <string name="intelligence">Intellect</string>
+    <string name="luck">Luck</string>
+    <string name="agility">Agility</string>
+    <string name="vitality">Vitality</string>
+    <string name="characherImage">Character Image</string>
+    <string name="divider">|</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="femaleLogo">female</string>
+    <string name="maleLogo">male</string>
+    <string name="logoApp">Logo App</string>
+    <string name="logoAndroid">logo Default</string>
+    <string name="QrCode">QrCode</string>
+    <string name="createACharacter">Create a Character</string>
+    <string name="loadACharacter">Load a Character</string>
+    <string name="Almanax">Almanax</string>
+    <string name="Encyclopedie">Encyclopedia</string>
+    <string name="Tools">Tools</string>
+    <string name="Communicate">Communicate</string>
+    <string name="Share">Share</string>
+    <string name="Send">Send</string>
+    <string name="defaultUser">Default User</string>
+    <string name="defaultEmail">android.studio@android.com</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="prompt_username">User Name</string>
+    <string name="prompt_password_conformation">Confirmation</string>
+    <string name="action_log_in_short">Sign in</string>
+    <string name="action_register">Register</string>
+    <string name="action_register_short">Register</string>
+    <string name="activity_sign_in_label">Sign In</string>
+    <string name="activity_register_label">Register</string>
+
+</resources>
