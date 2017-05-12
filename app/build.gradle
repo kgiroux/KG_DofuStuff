@@ -10,6 +10,7 @@ android {
         applicationId "com.giroux.kevin.dofustuff"
         minSdkVersion 15
         targetSdkVersion 25
+        
         versionCode 1
         versionName "0.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
