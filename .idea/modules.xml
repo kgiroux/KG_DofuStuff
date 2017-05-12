@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/DofuStuff.iml" filepath="$PROJECT_DIR$/DofuStuff.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/KG_DofuStuff.iml" filepath="$PROJECT_DIR$/KG_DofuStuff.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KG_DofuStuff.iml" filepath="$PROJECT_DIR$/KG_DofuStuff.iml" />
       <module fileurl="file://$PROJECT_DIR$/androidhttprequestlibrairy/androidhttprequestlibrairy.iml" filepath="$PROJECT_DIR$/androidhttprequestlibrairy/androidhttprequestlibrairy.iml" />
+>>>>>>> a6560b5271fe99fb3caee5bfd49c0b558678e595
+      <module fileurl="file://$PROJECT_DIR$/androidhttprequestlibrairy/androidhttprequestlibrairy.iml" filepath="$PROJECT_DIR$/androidhttprequestlibrairy/androidhttprequestlibrairy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
