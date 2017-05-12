@@ -17,6 +17,7 @@ import android.view.MenuItem;
 
 import com.giroux.kevin.dofustuff.R;
 import com.giroux.kevin.dofustuff.activity.Administration.AdministrationActivity;
+import com.giroux.kevin.dofustuff.activity.Almanax.AlmanaxActivity;
 import com.giroux.kevin.dofustuff.activity.character.CharacterInformationActivity;
 import com.giroux.kevin.dofustuff.activity.character.CreateActivity;
 import com.giroux.kevin.dofustuff.adapter.CharacterAdapter;
@@ -131,8 +132,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         Intent t = null;
-        if (id == R.id.nav_almanax) {
-        } else if (id == R.id.nav_add) {
+        if (id == R.id.nav_add) {
              t = new Intent(this, CreateActivity.class);
         }else if(id == R.id.nav_load){
             t = new Intent(this, CharacterInformationActivity.class);
@@ -143,6 +143,8 @@ public class MainActivity extends AppCompatActivity
 
         } else if(id == R.id.nav_lock){
             t = new Intent(this,AdministrationActivity.class);
+        } else if(id == R.id.nav_almanax){
+            t = new Intent(this, AlmanaxActivity.class);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

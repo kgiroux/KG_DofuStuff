@@ -8,6 +8,7 @@
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="text_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="padding_default">24dp</dimen>
     <dimen name="signin_horizontal_margin">64dp</dimen>
     <dimen name="padding_bottom_pull_down">16dp</dimen>
 

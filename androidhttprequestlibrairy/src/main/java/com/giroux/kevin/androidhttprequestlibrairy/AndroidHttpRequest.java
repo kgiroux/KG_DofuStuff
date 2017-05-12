@@ -48,6 +48,11 @@ public class AndroidHttpRequest extends AsyncTask<String[], Void, Object> {
 
     private TypeMine typeMine;
 
+    public TypeMine getTypeMine() {
+        return typeMine;
+    }
+
+
     private Map<String, String> getListParam() {
         return listParam;
     }
@@ -72,11 +77,11 @@ public class AndroidHttpRequest extends AsyncTask<String[], Void, Object> {
         this.timeout = timeout;
     }
 
-    private void setListObject(Map<String, Object> listObject) {
+    public void setListObject(Map<String, Object> listObject) {
         this.listObject = listObject;
     }
 
-    private String getUrl() {
+    protected String getUrl() {
         return url;
     }
 
@@ -207,7 +212,7 @@ public class AndroidHttpRequest extends AsyncTask<String[], Void, Object> {
         return object;
     }
 
-    private Object performedCheckCodeMessage(HttpURLConnection urlConnection) throws IOException, JSONException{
+    protected Object performedCheckCodeMessage(HttpURLConnection urlConnection) throws IOException, JSONException{
         InputStream in;
         String str;
         Object json= null;
@@ -311,7 +316,7 @@ public class AndroidHttpRequest extends AsyncTask<String[], Void, Object> {
     }
 
 
-    private String getMethod() {
+    protected String getMethod() {
         return method;
     }
 
