@@ -9,11 +9,15 @@ import com.giroux.kevin.dofustuff.adapter.AlmanaxAdapter;
 import com.giroux.kevin.dofustuff.constants.AlmanaxConstant;
 import com.giroux.kevin.dofustuff.dto.AlmanaxInfo;
 import com.giroux.kevin.dofustuff.error.ErrorAlmanax;
+import com.giroux.kevin.dofustuff.network.ImageLoaderTask;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 
 /**
  * Created by kevin on 26/02/2017.
@@ -32,6 +36,13 @@ public class AlmanaxTask extends JSoupAndroidHttpRequest {
             AlmanaxInfo info = new AlmanaxInfo();
             Log.i("Info","Correct instance");
             Document doc = Document.class.cast(o);
+
+            Element almanaxBossImage = doc.getElementById("almanax_boss_image");
+            if(almanaxBossImage != null && almanaxBossImage.getElementsByTag("img") != null){
+                info.setAlamanaxBossImage(almanaxBossImage.getElementsByTag("img").attr("src").toString());
+            }
+
+
             // Récupération du alamanaxBoss
             Element alamanaxBoss = doc.getElementById("almanax_boss_desc");
             if(alamanaxBoss != null && alamanaxBoss.getElementsByTag("span") != null ){
@@ -66,9 +77,12 @@ public class AlmanaxTask extends JSoupAndroidHttpRequest {
 
                 if(achivement.getElementsByClass(AlmanaxConstant.ALMANAX_MID).get(0) != null
                         && achivement.getElementsByClass(AlmanaxConstant.ALMANAX_MID).get(0).getElementsByClass(AlmanaxConstant.ALMANAX_MORE).get(0) != null){
-
                     info.setSubBonus(achivement.getElementsByClass(AlmanaxConstant.ALMANAX_MID).get(0).getElementsByClass(AlmanaxConstant.ALMANAX_MORE).get(0).text());
-                    info.setBonus(achivement.getElementsByClass(AlmanaxConstant.ALMANAX_MID).get(0).text().replace(info.getSubBonus(),""));
+                    if(achivement.getElementsByClass(AlmanaxConstant.ALMANAX_MID).get(0).text().contains(info.getSubBonus())){
+                        Log.i("TEST","contains");
+                    }
+                    info.setBonus(achivement.getElementsByClass(AlmanaxConstant.ALMANAX_MID).get(0).text().replace(info.getSubBonus(),"").replace(info.getQuest(),"").replace(info.getQuestContent(),""));
+                    info.setSubBonus(info.getSubBonus().replace(info.getQuest(),"").replace(info.getQuestContent(),""));
 
                 }else{
                     throw new IllegalArgumentException(ErrorAlmanax.ERROR_ALMANAX_004.toString());
@@ -88,6 +102,17 @@ public class AlmanaxTask extends JSoupAndroidHttpRequest {
             if(this.getListObject().get("adapter") instanceof AlmanaxAdapter){
                 AlmanaxAdapter almanaxAdapter = AlmanaxAdapter.class.cast(this.getListObject().get("adapter"));
                 almanaxAdapter.addElementToList(info);
+
+                Queue<String> listOfDates = (Queue<String>)this.getListObject().get("listOfDates");
+
+                Map<String,String> listParam = new HashMap<>();
+                Map<String,Object> listUI = new HashMap<>();
+                listUI.put("adapter",almanaxAdapter);
+                if(listOfDates.peek() != null) {
+                    AlmanaxTask almanaxTask = new AlmanaxTask("http://www.krosmoz.com/fr/almanax/" + listOfDates.poll(), "GET", listParam);
+                    almanaxTask.setListObject(this.getListObject());
+                    almanaxTask.execute();
+                }
             }
         }
     }

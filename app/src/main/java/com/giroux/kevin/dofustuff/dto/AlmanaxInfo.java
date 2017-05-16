@@ -6,6 +6,7 @@ package com.giroux.kevin.dofustuff.dto;
 
 public class AlmanaxInfo {
     private String alamanaxBoss;
+    private String alamanaxBossImage;
     private String alamanaxTitle;
     private String effectTitle;
     private String effectContent;
@@ -93,5 +94,13 @@ public class AlmanaxInfo {
 
     public void setDayMonth(String dayMonth) {
         this.dayMonth = dayMonth;
+    }
+
+    public String getAlamanaxBossImage() {
+        return alamanaxBossImage;
+    }
+
+    public void setAlamanaxBossImage(String alamanaxBossImage) {
+        this.alamanaxBossImage = alamanaxBossImage;
     }
 }

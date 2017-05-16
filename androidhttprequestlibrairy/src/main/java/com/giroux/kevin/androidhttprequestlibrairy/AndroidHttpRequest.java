@@ -61,7 +61,7 @@ public class AndroidHttpRequest extends AsyncTask<String[], Void, Object> {
         this.listParam = listParam;
     }
 
-    private void setJSON(boolean JSON) {
+    public void setJSON(boolean JSON) {
         this.JSON = JSON;
     }
 
@@ -226,7 +226,7 @@ public class AndroidHttpRequest extends AsyncTask<String[], Void, Object> {
                 if (urlConnection.getContentType().equals(TypeMine.APPLICATION_JSON.toString() + ";charset=" + this.encoding.toLowerCase())){
                     str = streamToString(in);
                     json = new JSONObject(str);
-                }else if(urlConnection.getContentType().equals(TypeMine.IMAGE_JPEG.toString())){
+                }else if(urlConnection.getContentType().equals(TypeMine.IMAGE_JPEG.toString()) || urlConnection.getContentType().equals(TypeMine.IMAGE_PNG.toString())){
                     byte[] bytes =new byte[sizeBuffer];
                     int bytesRead;
 
@@ -330,20 +330,24 @@ public class AndroidHttpRequest extends AsyncTask<String[], Void, Object> {
         builderURL.scheme(url.getScheme()).appendEncodedPath(url.getPath());
         if(this.isJSON()){
             try{
-
-                for(Map.Entry<String,String> entrySet : listParam.entrySet()){
-                    object.put(entrySet.getKey(),entrySet.getValue());
+                if(listParam != null && listParam.size() > 0){
+                    for(Map.Entry<String,String> entrySet : listParam.entrySet()){
+                        object.put(entrySet.getKey(),entrySet.getValue());
+                    }
+                    this.paramStr = object.toString();
                 }
-                this.paramStr = object.toString();
+
             }catch(JSONException ex){
                 Log.e(Constants.TAG_ANDROID_HTTP_REQUEST,"Error during rendering JSON",ex);
             }
         }else{
-            for (Map.Entry<String, String> entrySet : listParam.entrySet()) {
-                if(entrySet.getKey().equals("") || entrySet.getKey().equals("/")){
-                    builderURL.appendEncodedPath(entrySet.getValue());
-                }else{
-                    builderURL.appendQueryParameter(entrySet.getKey(), entrySet.getValue()).build();
+            if(listParam != null && listParam.size() > 0) {
+                for (Map.Entry<String, String> entrySet : listParam.entrySet()) {
+                    if (entrySet.getKey().equals("") || entrySet.getKey().equals("/")) {
+                        builderURL.appendEncodedPath(entrySet.getValue());
+                    } else {
+                        builderURL.appendQueryParameter(entrySet.getKey(), entrySet.getValue()).build();
+                    }
                 }
             }
 

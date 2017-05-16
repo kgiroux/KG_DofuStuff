@@ -5,6 +5,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.util.Log;
+import android.widget.ImageView;
 
 import com.giroux.kevin.androidhttprequestlibrairy.AndroidHttpRequest;
 
@@ -33,14 +35,17 @@ public class ImageLoaderTask extends AndroidHttpRequest {
     @Override
     protected void onPostExecute(Object o) {
 
-        if(getListObject().get("gifVImageView") instanceof GifImageView){
-            GifImageView vh =  ((GifImageView) getListObject().get("ViewHolder"));
+        if(getListObject().get("gifVImageView") instanceof ImageView){
+            ImageView vh =  ((ImageView) getListObject().get("gifVImageView"));
             if(o instanceof byte[]){
                 byte []bytes = (byte[])o;
                 BitmapDrawable bitmapDrawable = new BitmapDrawable(activity.getApplicationContext().getResources(), BitmapFactory.decodeByteArray(bytes,0,bytes.length));
                 Bitmap image = bitmapDrawable.getBitmap();
                 if(image != null){
-                    vh.setImageBitmap(bitmapDrawable.getBitmap());
+                    Log.i("ImgTask","Image found and download");
+                    vh.setImageBitmap(image);
+                    vh.setScaleType(ImageView.ScaleType.FIT_XY);
+                    vh.setAdjustViewBounds(true);
                 }
             }
         }
