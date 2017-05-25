@@ -21,12 +21,17 @@ import com.giroux.kevin.dofustuff.activity.Almanax.AlmanaxActivity;
 import com.giroux.kevin.dofustuff.activity.character.CharacterInformationActivity;
 import com.giroux.kevin.dofustuff.activity.character.CreateActivity;
 import com.giroux.kevin.dofustuff.adapter.CharacterAdapter;
+import com.giroux.kevin.dofustuff.constants.Constants;
+import com.giroux.kevin.dofustuff.constants.DofusRealmSyncConfiguration;
 import com.giroux.kevin.dofustuff.database.PrimaryKeyFactory;
 import com.giroux.kevin.dofustuff.dto.Character;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+import io.realm.RealmList;
 import io.realm.RealmResults;
+import io.realm.SyncConfiguration;
+import io.realm.SyncUser;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -60,7 +65,29 @@ public class MainActivity extends AppCompatActivity
         recyclerView.setHasFixedSize(false);
         recyclerView.setNestedScrollingEnabled(false);
         config = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
-        realm = Realm.getInstance(config);
+        SyncConfiguration configSync = null;
+            SyncUser user = SyncUser.currentUser();
+            if(user != null){
+                DofusRealmSyncConfiguration.setUser(user);
+                Log.i("Current User", SyncUser.currentUser().toJson());
+                DofusRealmSyncConfiguration.setUrl(Constants.REALM_URL);
+                Log.i("Current URL", Constants.REALM_URL);
+
+                if(user != null){
+                    configSync  = DofusRealmSyncConfiguration.getInstance().getSyncConfiguration();
+                }
+            }
+
+
+
+
+        //
+        if(configSync != null){
+            realm = Realm.getInstance(configSync);
+        }else{
+            realm = Realm.getInstance(config);
+        }
+
         PrimaryKeyFactory.getInstance().initialize(realm);
         realm.beginTransaction();
         characters = realm.where(Character.class).findAll();
@@ -88,7 +115,7 @@ public class MainActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         Log.i("REALm","Passage ICI 2ss");
-        realm = Realm.getInstance(config);
+        realm = Realm.getInstance(DofusRealmSyncConfiguration.getInstance().getSyncConfiguration());
         if(!realm.isInTransaction()){
             realm.beginTransaction();
         }

@@ -81,5 +81,6 @@
     <string name="action_register_short">Register</string>
     <string name="activity_sign_in_label">Sign In</string>
     <string name="activity_register_label">Register</string>
+    <string name="Administration">Administrate</string>
 
 </resources>

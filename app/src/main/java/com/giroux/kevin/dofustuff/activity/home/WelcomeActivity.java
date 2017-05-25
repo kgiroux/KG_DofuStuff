@@ -28,6 +28,7 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         Realm.init(this);
+
         /* Récupération du numéro de version de l'application */
         try{
             PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
