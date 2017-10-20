@@ -61,7 +61,7 @@ public class AlmanaxActivity extends AppCompatActivity {
     }
 
     private Queue<String> genereteWeekly(){
-        Queue<String> dates = new ArrayDeque<String>() ;
+        Queue<String> dates = new ArrayDeque<>() ;
         int nbOfNextDay = 6;
         Calendar calendar = Calendar.getInstance();
         for(int i =0; i<nbOfNextDay; i++){

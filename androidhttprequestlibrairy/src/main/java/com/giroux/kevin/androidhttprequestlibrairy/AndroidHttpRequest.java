@@ -180,7 +180,6 @@ public class AndroidHttpRequest extends AsyncTask<String[], Void, Object> {
             urlConnection.setReadTimeout(this.timeout);
             urlConnection.setConnectTimeout(this.timeout);
             urlConnection.setDoInput(true);
-
             //Send parameters
             urlConnection.setRequestMethod(this.method);
             /*if (this.JSON)

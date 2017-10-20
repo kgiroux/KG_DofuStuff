@@ -38,15 +38,12 @@ public class RegisterActivity extends AppCompatActivity implements SyncUser.Call
         usernameView = (AutoCompleteTextView) findViewById(R.id.username);
         passwordView = (EditText) findViewById(R.id.password);
         passwordConfirmationView = (EditText) findViewById(R.id.password_confirmation);
-        passwordConfirmationView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.register || id == EditorInfo.IME_NULL) {
-                    attemptRegister();
-                    return true;
-                }
-                return false;
+        passwordConfirmationView.setOnEditorActionListener((textView, id, keyEvent) -> {
+            if (id == R.id.register || id == EditorInfo.IME_NULL) {
+                attemptRegister();
+                return true;
             }
+            return false;
         });
 
 

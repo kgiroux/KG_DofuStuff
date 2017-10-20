@@ -18,7 +18,7 @@ import pl.droidsonroids.gif.GifImageView;
  * Created by kevin on 26/11/2016.
  */
 
-public class ImageLoaderTask extends AndroidHttpRequest {
+public class    ImageLoaderTask extends AndroidHttpRequest {
 
     public ImageLoaderTask(String url, String method, Map<String, String> paramStr) {
         super(url, method, paramStr);

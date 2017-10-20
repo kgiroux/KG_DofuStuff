@@ -20,6 +20,7 @@ import com.giroux.kevin.dofustuff.activity.Administration.AdministrationActivity
 import com.giroux.kevin.dofustuff.activity.Almanax.AlmanaxActivity;
 import com.giroux.kevin.dofustuff.activity.character.CharacterInformationActivity;
 import com.giroux.kevin.dofustuff.activity.character.CreateActivity;
+import com.giroux.kevin.dofustuff.activity.search.SearchItemActivity;
 import com.giroux.kevin.dofustuff.adapter.CharacterAdapter;
 import com.giroux.kevin.dofustuff.constants.Constants;
 import com.giroux.kevin.dofustuff.constants.DofusRealmSyncConfiguration;
@@ -91,6 +92,7 @@ public class MainActivity extends AppCompatActivity
         PrimaryKeyFactory.getInstance().initialize(realm);
         realm.beginTransaction();
         characters = realm.where(Character.class).findAll();
+        realm.commitTransaction();
         characters.addChangeListener(element -> adapter.setData(element));
         adapter = new CharacterAdapter(characters, getApplicationContext());
         recyclerView.setAdapter(adapter);
@@ -118,6 +120,7 @@ public class MainActivity extends AppCompatActivity
         realm = Realm.getInstance(DofusRealmSyncConfiguration.getInstance().getSyncConfiguration());
         if(!realm.isInTransaction()){
             realm.beginTransaction();
+            this.adapter.setData(characters);
         }
     }
 
@@ -164,6 +167,7 @@ public class MainActivity extends AppCompatActivity
         }else if(id == R.id.nav_load){
             t = new Intent(this, CharacterInformationActivity.class);
         } else if (id == R.id.nav_encyclopedie) {
+            t = new Intent(this, SearchItemActivity.class);
         } else if (id == R.id.nav_manage) {
         } else if (id == R.id.nav_share) {
         } else if (id == R.id.nav_send) {

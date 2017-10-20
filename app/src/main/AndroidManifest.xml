@@ -50,7 +50,8 @@
             android:label="@string/title_activity_login" />
         <activity android:name=".activity.user.RegisterActivity" />
         <activity android:name=".activity.Administration.AdministrationActivity" />
-        <activity android:name=".activity.Almanax.AlmanaxActivity"></activity>
+        <activity android:name=".activity.Almanax.AlmanaxActivity" />
+        <activity android:name=".activity.search.SearchItemActivity"></activity>
     </application>
 
 </manifest>

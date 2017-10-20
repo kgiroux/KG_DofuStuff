@@ -1,5 +1,7 @@
 package com.giroux.kevin.dofustuff.dto;
 
+import android.support.annotation.NonNull;
+
 import com.giroux.kevin.dofustuff.database.PrimaryKeyFactory;
 
 import io.realm.RealmList;
@@ -8,7 +10,7 @@ import io.realm.annotations.PrimaryKey;
 import io.realm.annotations.RealmClass;
 
 @RealmClass
-public class Item  extends RealmObject {
+public class Item  extends RealmObject implements Comparable<Item>{
 
     @PrimaryKey
     private long id;
@@ -87,5 +89,10 @@ public class Item  extends RealmObject {
 
     public void setCaracteristics(RealmList<Characteristic> caracteristics) {
         this.characteristics = caracteristics;
+    }
+
+    @Override
+    public int compareTo(@NonNull Item item) {
+        return this.getName().compareTo(item.getName());
     }
 }
