@@ -16,8 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.giroux.kevin.dofustuff.R;
-import com.giroux.kevin.dofustuff.activity.Administration.AdministrationActivity;
-import com.giroux.kevin.dofustuff.activity.Almanax.AlmanaxActivity;
+import com.giroux.kevin.dofustuff.activity.administration.AdministrationActivity;
+import com.giroux.kevin.dofustuff.activity.almanax.AlmanaxActivity;
 import com.giroux.kevin.dofustuff.activity.character.CharacterInformationActivity;
 import com.giroux.kevin.dofustuff.activity.character.CreateActivity;
 import com.giroux.kevin.dofustuff.activity.search.SearchItemActivity;
@@ -29,7 +29,6 @@ import com.giroux.kevin.dofustuff.dto.Character;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
-import io.realm.RealmList;
 import io.realm.RealmResults;
 import io.realm.SyncConfiguration;
 import io.realm.SyncUser;
@@ -41,23 +40,24 @@ public class MainActivity extends AppCompatActivity
     private RealmConfiguration config;
     private CharacterAdapter adapter;
     private RealmResults<Character> characters;
+    private RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
 
         navigationView.setNavigationItemSelectedListener(this);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.characters);
+        recyclerView = findViewById(R.id.characters);
         final LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mLayoutManager.setReverseLayout(false);
@@ -67,34 +67,26 @@ public class MainActivity extends AppCompatActivity
         recyclerView.setNestedScrollingEnabled(false);
         config = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
         SyncConfiguration configSync = null;
-            SyncUser user = SyncUser.currentUser();
-            if(user != null){
-                DofusRealmSyncConfiguration.setUser(user);
-                Log.i("Current User", SyncUser.currentUser().toJson());
-                DofusRealmSyncConfiguration.setUrl(Constants.REALM_URL);
-                Log.i("Current URL", Constants.REALM_URL);
-
-                if(user != null){
-                    configSync  = DofusRealmSyncConfiguration.getInstance().getSyncConfiguration();
-                }
-            }
-
-
-
-
-        //
+        SyncUser user = SyncUser.currentUser();
+        if(user != null){
+            DofusRealmSyncConfiguration.setUser(user);
+            Log.i("Current User", SyncUser.currentUser().toJson());
+            DofusRealmSyncConfiguration.setUrl(Constants.REALM_URL);
+            Log.i("Current URL", Constants.REALM_URL);
+            configSync  = DofusRealmSyncConfiguration.getInstance() .getSyncConfiguration();
+        }
         if(configSync != null){
             realm = Realm.getInstance(configSync);
         }else{
             realm = Realm.getInstance(config);
         }
+        try{
+            PrimaryKeyFactory.getInstance().initialize(realm);
+        }catch (IllegalStateException ex){
+            Log.i("Init","Nothing to do");
+        }
 
-        PrimaryKeyFactory.getInstance().initialize(realm);
-        realm.beginTransaction();
-        characters = realm.where(Character.class).findAll();
-        realm.commitTransaction();
-        characters.addChangeListener(element -> adapter.setData(element));
-        adapter = new CharacterAdapter(characters, getApplicationContext());
+        adapter = new CharacterAdapter(realm.where(Character.class).findAll(),getApplicationContext());
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
@@ -102,31 +94,20 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        recyclerView.setAdapter(null);
         realm.close();
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.i("REALm","Passage ICI");
-        realm.cancelTransaction();
-        realm.close();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i("REALm","Passage ICI 2ss");
-        realm = Realm.getInstance(DofusRealmSyncConfiguration.getInstance().getSyncConfiguration());
-        if(!realm.isInTransaction()){
-            realm.beginTransaction();
-            this.adapter.setData(characters);
-        }
-    }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -177,10 +158,11 @@ public class MainActivity extends AppCompatActivity
         } else if(id == R.id.nav_almanax){
             t = new Intent(this, AlmanaxActivity.class);
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         if(t != null){
             startActivity(t);
+
         }
         return true;
     }

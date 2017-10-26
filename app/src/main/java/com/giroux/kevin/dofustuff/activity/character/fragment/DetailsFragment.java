@@ -2,6 +2,7 @@ package com.giroux.kevin.dofustuff.activity.character.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +23,13 @@ public class DetailsFragment extends Fragment {
         return new DetailsFragment();
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        Log.i("TEST",String.valueOf(getArguments().get("idCharacter")));
+
         return inflater.inflate(R.layout.fragment_details, container, false);
     }
 }

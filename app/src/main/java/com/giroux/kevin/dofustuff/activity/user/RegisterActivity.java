@@ -23,7 +23,7 @@ import io.realm.SyncUser;
 import static android.text.TextUtils.isEmpty;
 import static com.giroux.kevin.dofustuff.constants.Constants.AUTH_URL;
 
-public class RegisterActivity extends AppCompatActivity implements SyncUser.Callback {
+public class RegisterActivity extends AppCompatActivity implements SyncUser.Callback<SyncUser> {
 
     private AutoCompleteTextView usernameView;
     private EditText passwordView;
@@ -100,7 +100,7 @@ public class RegisterActivity extends AppCompatActivity implements SyncUser.Call
             focusView.requestFocus();
         } else {
             showProgress(true);
-            SyncUser.loginAsync(SyncCredentials.usernamePassword(username, password, true), AUTH_URL, new SyncUser.Callback() {
+            SyncUser.loginAsync(SyncCredentials.usernamePassword(username, password, true), AUTH_URL, new SyncUser.Callback<SyncUser>() {
                 @Override
                 public void onSuccess(SyncUser user) {
                     registrationComplete(user);
@@ -111,15 +111,10 @@ public class RegisterActivity extends AppCompatActivity implements SyncUser.Call
                     showProgress(false);
                     String errorMsg;
                     switch (error.getErrorCode()) {
-                        case EXISTING_ACCOUNT:
-                            errorMsg = "Account already exists";
-                            break;
+                        case EXISTING_ACCOUNT: errorMsg = "Account already exists"; break;
                         default:
                             errorMsg = error.toString();
                     }
-
-                   // RealmLog.info(errorMsg);
-                    System.out.println("HELLLO" + errorMsg);
                     Toast.makeText(RegisterActivity.this, errorMsg, Toast.LENGTH_LONG).show();
                 }
             });

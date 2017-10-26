@@ -37,7 +37,7 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity implements SyncUser.Callback {
+public class LoginActivity extends AppCompatActivity implements SyncUser.Callback<SyncUser> {
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -139,10 +139,6 @@ public class LoginActivity extends AppCompatActivity implements SyncUser.Callbac
             mEmailView.setError(getString(R.string.error_field_required));
             focusView = mEmailView;
             cancel = true;
-        } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
-            cancel = true;
         }
 
         if (cancel) {
@@ -155,11 +151,6 @@ public class LoginActivity extends AppCompatActivity implements SyncUser.Callbac
             showProgress(true);
             SyncUser.loginAsync(SyncCredentials.usernamePassword(email, password, false), Constants.AUTH_URL, this);
         }
-    }
-
-    private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
-        return email.contains("@");
     }
 
     private boolean isPasswordValid(String password) {

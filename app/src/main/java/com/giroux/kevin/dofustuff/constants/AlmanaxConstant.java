@@ -5,9 +5,14 @@ package com.giroux.kevin.dofustuff.constants;
  */
 
 public class AlmanaxConstant {
-    public static String ALMANAX_MORE = "more";
-    public static String ALMANAX_P= "p";
-    public static String ALMANAX_MORE_INFO_CONTENT ="more-infos-content";
-    public static String ALMANAX_MORE_INFOS ="more-infos";
-    public static String ALMANAX_MID = "mid";
+
+    private AlmanaxConstant() throws InstantiationException {
+        throw  new InstantiationException();
+    }
+
+    public static final String ALMANAX_MORE = "more";
+    public static final String ALMANAX_P= "p";
+    public static final String ALMANAX_MORE_INFO_CONTENT ="more-infos-content";
+    public static final String ALMANAX_MORE_INFOS ="more-infos";
+    public static final String ALMANAX_MID = "mid";
 }

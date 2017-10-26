@@ -7,7 +7,8 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.giroux.kevin.dofustuff.R;
-import com.giroux.kevin.dofustuff.dto.Item;
+import com.giroux.kevin.dofustuff.commons.item.Item;
+import com.giroux.kevin.dofustuff.dto.ItemCharacter;
 import com.giroux.kevin.dofustuff.viewholder.ItemViewHolder;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class ItemAdapter extends RecyclerView.Adapter {
             ItemViewHolder itemsViewHolder = (ItemViewHolder) holder;
             itemsViewHolder.getItemLevel().setText(new StringBuilder().append("Level : ").append(String.valueOf(this.itemList.get(position).getLevel())).toString());
             itemsViewHolder.getItemName().setText(this.itemList.get(position).getName());
-            Glide.with(this.activity).load("http://10.0.2.2:8081/medias/"+ this.itemList.get(position).getItemId()).into(itemsViewHolder.getGifImageView());
+            Glide.with(this.activity).load("http://nexus-factory.ovh:9002/medias/"+ this.itemList.get(position).getId()).into(itemsViewHolder.getGifImageView());
         }
     }
 
@@ -44,8 +45,8 @@ public class ItemAdapter extends RecyclerView.Adapter {
     }
 
 
-    public void updateData(List<Item> items){
-        for(Item i:items){
+    public void updateData(List<Item> itemCharacters){
+        for(Item i: itemCharacters){
             if(!this.itemList.contains(i)){
                 this.itemList.add(i);
             }

@@ -1,76 +1,83 @@
 package com.giroux.kevin.dofustuff.dto;
 
+import io.realm.annotations.RealmClass;
+
 /**
  * Created by kevin on 25/11/2016.
  */
-
 public enum Type {
     /**
      * Ecaflip
      */
-    ECAFLIP,
+    ECAFLIP("ecaflip"),
     /**
      * Eniripsa
      */
-    ENIRIPSA,
+    ENIRIPSA("eniripsa"),
     /**
      * Iop
      */
-    IOP,
+    IOP("iop"),
     /**
      *  CRA
      */
-    CRA,
+    CRA("cra"),
     /**
      * FECA
      */
-    FECA,
+    FECA("feca"),
     /**
      * SACRIEUR
      */
-    SACRIEUR,
+    SACRIEUR("sacrieur"),
     /**
      * SADIDA
      */
-    SADIDA,
+    SADIDA("sadida"),
     /**
      * OSAMODAS
      */
-    OSAMODAS,
+    OSAMODAS("osamodas"),
     /**
      * ENUTROF
      */
-    ENUTROF,
+    ENUTROF("enutrof"),
     /**
      * SRAM
      */
-    SRAM,
+    SRAM("sram"),
     /**
      * XELOR
      */
-    XELOR,
+    XELOR("xelor"),
     /**
      * PANDAWA
      */
-    PANDAWA,
+    PANDAWA("pandawa"),
     /**
      * ROUBLARD
      */
-    ROUBLARD,
+    ROUBLARD("roublard"),
     /**
      * ZOBAL
      */
-    ZOBAL,
+    ZOBAL("zobal"),
     /**
      * STEAMER
      */
-    STEAMER,
+    STEAMER("steamer"),
     /**
      * ELIOTROP
      */
-    ELIOTROP,
+    ELIOTROP("eliotrop"),
     /**
      * HUPPERMAGE
      */
-    HUPPERMAGE
+    HUPPERMAGE("huppermage");
+
+    private String typeClass;
+
+    Type (String type){
+        this.typeClass = type;
+    }
 }

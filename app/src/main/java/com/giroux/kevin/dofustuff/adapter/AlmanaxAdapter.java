@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.giroux.kevin.androidhttprequestlibrairy.constants.TypeMine;
 import com.giroux.kevin.dofustuff.R;
@@ -16,9 +15,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import butterknife.BindView;
-import pl.droidsonroids.gif.GifImageView;
 
 /**
  * Created by kevin on 31/03/2017.

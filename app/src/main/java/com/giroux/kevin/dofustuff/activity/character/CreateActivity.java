@@ -1,10 +1,8 @@
 package com.giroux.kevin.dofustuff.activity.character;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.preference.Preference;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -16,7 +14,6 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 import com.giroux.kevin.dofustuff.R;
-import com.giroux.kevin.dofustuff.constants.Constants;
 import com.giroux.kevin.dofustuff.constants.DofusRealmSyncConfiguration;
 import com.giroux.kevin.dofustuff.databinding.ActivityCreateBinding;
 import com.giroux.kevin.dofustuff.dto.Character;
@@ -25,14 +22,10 @@ import com.giroux.kevin.dofustuff.dto.TypeCharacteristic;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
-import io.realm.RealmList;
 import io.realm.SyncConfiguration;
 import io.realm.SyncUser;
 import pl.droidsonroids.gif.GifImageView;
@@ -70,23 +63,21 @@ public class CreateActivity extends AppCompatActivity implements Toolbar.OnClick
         }else{
             realm = Realm.getInstance(config);
         }
-
-        realm.beginTransaction();
         character = new Character();
+        character.initCharacter();
         binding.setCharacter(character);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setOnClickListener(this);
         toolbar.setLogo(R.drawable.arrow_left_bold);
         toolbar.setNavigationOnClickListener(this);
         Spinner spinner = (Spinner) findViewById(R.id.classGame);
-        gifImageView = (GifImageView) findViewById(R.id.createCharacterGif);
+        gifImageView = findViewById(R.id.createCharacterGif);
         gifImageView.setImageResource(R.drawable.dofus_logosizechange);
 
         spinner.setOnItemSelectedListener(this);
 
-        Button createButton = (Button) findViewById(R.id.createButton);
+        Button createButton = findViewById(R.id.createButton);
         createButton.setOnClickListener(this);
 
 
@@ -99,38 +90,54 @@ public class CreateActivity extends AppCompatActivity implements Toolbar.OnClick
             finish();
         } else if (view.getId() == R.id.createButton) {
 
-            RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroupSex);
+            RadioGroup radioGroup = findViewById(R.id.radioGroupSex);
             int id = radioGroup.getCheckedRadioButtonId();
-            if(id == R.id.radioFemale){
-                character.setSex(SexType.FEMALE.toString());
-            }else if(id == R.id.radioMale){
-                character.setSex(SexType.MALE.toString());
-            }
-            if(null != caracteristicForceValue.getText() && !caracteristicForceValue.getText().toString().equals("")){
-                character.getCharacteristic(TypeCharacteristic.FORCE.toString()).setCurrentValue(Integer.parseInt(caracteristicForceValue.getText().toString()));
-            }
-            if(null != caracteristicVitalityValue.getText() && !caracteristicVitalityValue.getText().toString().equals("")){
-                character.getCharacteristic(TypeCharacteristic.VITALITE.toString()).setCurrentValue(Integer.parseInt(caracteristicVitalityValue.getText().toString()));
-            }
-            if(null != caracteristicIntelligenceValue.getText() && !caracteristicIntelligenceValue.getText().toString().equals("")){
-                character.getCharacteristic(TypeCharacteristic.INTELLIGENCE.toString()).setCurrentValue(Integer.parseInt(caracteristicIntelligenceValue.getText().toString()));
-            }
-            if(null != caracteristicSagesseValue.getText() && !caracteristicSagesseValue.getText().toString().equals("")){
-                character.getCharacteristic(TypeCharacteristic.SAGESSE.toString()).setCurrentValue(Integer.parseInt(caracteristicSagesseValue.getText().toString()));
-            }
-            if(null != caracteristicAgilityValue.getText() && !caracteristicAgilityValue.getText().toString().equals("")){
-                character.getCharacteristic(TypeCharacteristic.AGILITE.toString()).setCurrentValue(Integer.parseInt(caracteristicAgilityValue.getText().toString()));
-            }
-            if(null != caracteristicLuckValue.getText() && !caracteristicLuckValue.getText().toString().equals("")){
-                character.getCharacteristic(TypeCharacteristic.CHANCE.toString()).setCurrentValue(Integer.parseInt(caracteristicLuckValue.getText().toString()));
+            handleDataBindingCharacter(id);
+            if(realm.isInTransaction()){
+                realm.cancelTransaction();
             }
 
+            try{
+                realm.executeTransactionAsync(realm -> {
+                    Log.i("Insert", "Insert start");
+                    realm.insert(character);
+                }, () -> {
+                    Log.i("Insert", "Insert complete");
+                    finish();
+                }, error -> Log.i("Insert","Error " + error.getMessage()));
 
-            realm.insert(character);
-            realm.commitTransaction();
-            finish();
+            }catch (Exception e){
+                Log.e("Error", "onClick: "+e.getLocalizedMessage() );
+            }
+
         }
 
+    }
+
+    private void handleDataBindingCharacter(int id) {
+        if(id == R.id.radioFemale){
+            character.setSex(SexType.FEMALE.toString());
+        }else if(id == R.id.radioMale){
+            character.setSex(SexType.MALE.toString());
+        }
+        if(null != caracteristicForceValue.getText() && !caracteristicForceValue.getText().toString().equals("")){
+            character.getCharacteristic(TypeCharacteristic.FORCE.toString()).setCurrentValue(Integer.parseInt(caracteristicForceValue.getText().toString()));
+        }
+        if(null != caracteristicVitalityValue.getText() && !caracteristicVitalityValue.getText().toString().equals("")){
+            character.getCharacteristic(TypeCharacteristic.VITALITE.toString()).setCurrentValue(Integer.parseInt(caracteristicVitalityValue.getText().toString()));
+        }
+        if(null != caracteristicIntelligenceValue.getText() && !caracteristicIntelligenceValue.getText().toString().equals("")){
+            character.getCharacteristic(TypeCharacteristic.INTELLIGENCE.toString()).setCurrentValue(Integer.parseInt(caracteristicIntelligenceValue.getText().toString()));
+        }
+        if(null != caracteristicSagesseValue.getText() && !caracteristicSagesseValue.getText().toString().equals("")){
+            character.getCharacteristic(TypeCharacteristic.SAGESSE.toString()).setCurrentValue(Integer.parseInt(caracteristicSagesseValue.getText().toString()));
+        }
+        if(null != caracteristicAgilityValue.getText() && !caracteristicAgilityValue.getText().toString().equals("")){
+            character.getCharacteristic(TypeCharacteristic.AGILITE.toString()).setCurrentValue(Integer.parseInt(caracteristicAgilityValue.getText().toString()));
+        }
+        if(null != caracteristicLuckValue.getText() && !caracteristicLuckValue.getText().toString().equals("")){
+            character.getCharacteristic(TypeCharacteristic.CHANCE.toString()).setCurrentValue(Integer.parseInt(caracteristicLuckValue.getText().toString()));
+        }
     }
 
     @Override
@@ -148,18 +155,11 @@ public class CreateActivity extends AppCompatActivity implements Toolbar.OnClick
 
     }
 
-    protected void onDestroy() {
-        super.onDestroy();
-        realm.close();
-    }
-
     @Override
     protected void onPause() {
         super.onPause();
-        Log.i("REALm","Passage ICI");
         if(realm.isInTransaction()){
             realm.cancelTransaction();
         }
-        realm.close();
     }
 }

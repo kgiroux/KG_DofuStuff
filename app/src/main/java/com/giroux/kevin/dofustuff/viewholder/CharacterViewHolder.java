@@ -21,6 +21,7 @@ public class CharacterViewHolder extends RecyclerView.ViewHolder{
     private TextView characterLevel;
     private TextView characterName;
     private Context context;
+    private long idCharacter;
 
     public Context getContext() {
         return context;
@@ -32,11 +33,13 @@ public class CharacterViewHolder extends RecyclerView.ViewHolder{
 
     public CharacterViewHolder(View itemView) {
         super(itemView);
-        characterImage = (GifImageView) itemView.findViewById(R.id.characterImage);
-        characterLevel = (TextView) itemView.findViewById(R.id.characterLevel);
-        characterName = (TextView) itemView.findViewById(R.id.characterName);
+        characterImage = itemView.findViewById(R.id.characterImage);
+        characterLevel = itemView.findViewById(R.id.characterLevel);
+        characterName = itemView.findViewById(R.id.characterName);
         itemView.setOnClickListener(v -> {
+
             Intent t = new Intent(getContext(), CharacterInformationActivity.class);
+            t.putExtra("idCharacter",this.idCharacter);
             context.startActivity(t);
         });
     }
@@ -51,5 +54,13 @@ public class CharacterViewHolder extends RecyclerView.ViewHolder{
 
     public GifImageView getCharacterImage() {
         return characterImage;
+    }
+
+    public long getIdCharacter() {
+        return idCharacter;
+    }
+
+    public void setIdCharacter(long idCharacter) {
+        this.idCharacter = idCharacter;
     }
 }

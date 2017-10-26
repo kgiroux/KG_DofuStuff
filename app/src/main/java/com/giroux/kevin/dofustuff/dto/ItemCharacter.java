@@ -10,7 +10,7 @@ import io.realm.annotations.PrimaryKey;
 import io.realm.annotations.RealmClass;
 
 @RealmClass
-public class Item  extends RealmObject implements Comparable<Item>{
+public class ItemCharacter extends RealmObject implements Comparable<ItemCharacter>{
 
     @PrimaryKey
     private long id;
@@ -21,11 +21,11 @@ public class Item  extends RealmObject implements Comparable<Item>{
     private String setName;
     private RealmList<Characteristic> characteristics;
 
-    public Item(){
-        this.id = PrimaryKeyFactory.getInstance().nextKey(Item.class);
+    public ItemCharacter(){
+        this.id = PrimaryKeyFactory.getInstance().nextKey(ItemCharacter.class);
     }
 
-    public Item(long id, int itemId, String name, String type, int level, String setName, RealmList<Characteristic> caracteristics) {
+    public ItemCharacter(long id, int itemId, String name, String type, int level, String setName, RealmList<Characteristic> caracteristics) {
         this.id = id;
         this.itemId = itemId;
         this.name = name;
@@ -92,7 +92,7 @@ public class Item  extends RealmObject implements Comparable<Item>{
     }
 
     @Override
-    public int compareTo(@NonNull Item item) {
-        return this.getName().compareTo(item.getName());
+    public int compareTo(@NonNull ItemCharacter itemCharacter) {
+        return this.getName().compareTo(itemCharacter.getName());
     }
 }

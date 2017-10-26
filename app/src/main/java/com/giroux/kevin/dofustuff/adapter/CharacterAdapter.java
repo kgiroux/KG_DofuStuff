@@ -11,49 +11,52 @@ import com.giroux.kevin.dofustuff.viewholder.CharacterViewHolder;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import io.realm.OrderedRealmCollection;
+import io.realm.RealmRecyclerViewAdapter;
 import io.realm.RealmResults;
 
 /**
  * Created by kevin on 11/12/2016.
  */
 
-public class CharacterAdapter extends RecyclerView.Adapter {
+public class CharacterAdapter extends RealmRecyclerViewAdapter<Character, CharacterViewHolder> {
+    private List<Character> characterList;
 
-    private RealmResults<Character> characterRealmResults;
     private Context context;
-    public CharacterAdapter(RealmResults<Character> charactersList, Context context){
-        this.characterRealmResults = charactersList;
+
+    public CharacterAdapter(OrderedRealmCollection<Character> data,Context context){
+        super(data,true);
         this.context = context;
+        characterList = new ArrayList<>();
+        setHasStableIds(true);
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public  CharacterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new CharacterViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.main_content_character,parent,false));
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if(holder instanceof CharacterViewHolder){
-            CharacterViewHolder characterViewHolder = (CharacterViewHolder) holder;
-            Character character = characterRealmResults.get(position);
+    public void onBindViewHolder(CharacterViewHolder characterViewHolder, int position) {
+            Character character = getItem(position);
             characterViewHolder.setCharacterLevel(String.valueOf(character.getLevel()));
             characterViewHolder.setCharacterName(character.getName());
             characterViewHolder.setContext(context);
             int drawableResourceId = context.getResources().getIdentifier(StringUtils.stripAccents(character.getClassGame().toLowerCase())+"_"+character.getSex().toLowerCase(), "drawable", context.getPackageName());
             if (drawableResourceId != -1) {
                 characterViewHolder.getCharacterImage().getVisibility();
+                characterViewHolder.setIdCharacter(character.getId());
                 characterViewHolder.getCharacterImage().setImageResource(drawableResourceId);
             }
-        }
+
     }
 
     @Override
-    public int getItemCount() {
-        return  this.characterRealmResults.size();
-    }
-
-    public void setData(RealmResults<Character> newResult){
-        this.characterRealmResults = newResult;
-        notifyDataSetChanged();
+    public long getItemId(int index) {
+        //noinspection ConstantConditions
+        return getItem(index).getId();
     }
 }

@@ -1,4 +1,4 @@
-package com.giroux.kevin.dofustuff.activity.Almanax;
+package com.giroux.kevin.dofustuff.activity.almanax;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.giroux.kevin.dofustuff.R;
-import com.giroux.kevin.dofustuff.activity.Almanax.network.AlmanaxTask;
+import com.giroux.kevin.dofustuff.network.AlmanaxTask;
 import com.giroux.kevin.dofustuff.adapter.AlmanaxAdapter;
 
 import java.text.DateFormat;
@@ -14,11 +14,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayDeque;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Queue;
-import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

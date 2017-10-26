@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import com.giroux.kevin.dofustuff.BuildConfig;
 import com.giroux.kevin.dofustuff.R;
 import com.giroux.kevin.dofustuff.activity.character.fragment.ArmesFragment;
 import com.giroux.kevin.dofustuff.activity.character.fragment.CaracteristicFragment;
@@ -52,8 +53,10 @@ public class CharacterInformationActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        FragmentManager fm = getSupportFragmentManager();
 
+        long idCharacter = this.getIntent().getLongExtra("idCharacter",0);
+        mSectionsPagerAdapter = new SectionsPagerAdapter(fm, idCharacter);
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
@@ -61,10 +64,6 @@ public class CharacterInformationActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
 
         tabIcons = new int[]{R.drawable.details, R.drawable.shield, R.drawable.caracteristics, R.drawable.magic, R.drawable.sword};
         for(int i = 0; i<tabLayout.getTabCount(); i++){
@@ -108,6 +107,8 @@ public class CharacterInformationActivity extends AppCompatActivity {
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
+        private static final String ARG_ID_CHARACTER = "id_character";
+
         public PlaceholderFragment() {
         }
 
@@ -119,6 +120,7 @@ public class CharacterInformationActivity extends AppCompatActivity {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+           // args.putInt(ARG_ID_CHARACTER,)
             fragment.setArguments(args);
             return fragment;
         }
@@ -139,26 +141,44 @@ public class CharacterInformationActivity extends AppCompatActivity {
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        private long idCharacter;
+
+
+        public SectionsPagerAdapter(FragmentManager fm, long idCharacter) {
             super(fm);
+            this.idCharacter = idCharacter;
+
         }
 
         @Override
         public Fragment getItem(int position) {
+
+            Bundle bundle = new Bundle();
+            bundle.putLong("idCharacter", idCharacter);
+            Fragment fr;
+
             switch (position){
                 case 0 :
-                    return DetailsFragment.newInstance();
+                    fr =  DetailsFragment.newInstance();
+                    break;
                 case 1 :
-                    return ItemFragment.newInstance();
+                    fr = ItemFragment.newInstance();
+                    break;
                 case 2 :
-                    return CaracteristicFragment.newInstance();
+                    fr =  CaracteristicFragment.newInstance();
+                    break;
                 case 3 :
-                    return SortFragment.newInstance();
+                    fr =  SortFragment.newInstance();
+                    break;
                 case 4 :
-                    return ArmesFragment.newInstance();
+                    fr =  ArmesFragment.newInstance();
+                    break;
                 default :
-                    return DetailsFragment.newInstance();
+                    fr =  DetailsFragment.newInstance();
+                    break;
             }
+            fr.setArguments(bundle);
+            return fr;
         }
 
         @Override
@@ -179,8 +199,9 @@ public class CharacterInformationActivity extends AppCompatActivity {
                     return "Sorts";
                 case 4 :
                     return "Arms";
+                default:
+                    return "Details";
             }
-            return null;
         }
     }
 }

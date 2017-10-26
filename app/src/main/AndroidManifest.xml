@@ -49,8 +49,8 @@
             android:name=".activity.user.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name=".activity.user.RegisterActivity" />
-        <activity android:name=".activity.Administration.AdministrationActivity" />
-        <activity android:name=".activity.Almanax.AlmanaxActivity" />
+        <activity android:name=".activity.administration.AdministrationActivity" />
+        <activity android:name=".activity.almanax.AlmanaxActivity" />
         <activity android:name=".activity.search.SearchItemActivity"></activity>
     </application>
 

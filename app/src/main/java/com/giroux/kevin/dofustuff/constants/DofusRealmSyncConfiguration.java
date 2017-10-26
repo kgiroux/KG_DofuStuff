@@ -2,6 +2,8 @@ package com.giroux.kevin.dofustuff.constants;
 
 import android.util.Log;
 
+import com.giroux.kevin.dofustuff.dto.DofusStuffModule;
+
 import io.realm.SyncConfiguration;
 import io.realm.SyncUser;
 
@@ -28,7 +30,7 @@ public class DofusRealmSyncConfiguration {
 
     private DofusRealmSyncConfiguration() {
         if(DofusRealmSyncConfiguration.ourInstance == null){
-            syncConfiguration = new SyncConfiguration.Builder(user,url).build();
+            syncConfiguration = new SyncConfiguration.Builder(user,url).modules(new DofusStuffModule()).schemaVersion(2).build();
         }
 
     }
@@ -38,7 +40,6 @@ public class DofusRealmSyncConfiguration {
     }
 
     public static void setUser(SyncUser userParam) {
-        Log.i("Info","Passage ici User");
         user = userParam;
     }
 
@@ -48,8 +49,7 @@ public class DofusRealmSyncConfiguration {
     }
 
     public static void setUrl(String urlParam) {
-        Log.i("Info","Passage ici Url");
-        url = urlParam;
+       url = urlParam;
     }
 
     public SyncConfiguration getSyncConfiguration() {

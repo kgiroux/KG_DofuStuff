@@ -1,16 +1,15 @@
 package com.giroux.kevin.dofustuff.network;
 
-import android.util.Log;
-
 import com.giroux.kevin.androidhttprequestlibrairy.AndroidHttpRequest;
 import com.giroux.kevin.dofustuff.adapter.ItemAdapter;
-import com.giroux.kevin.dofustuff.dto.Item;
+import com.giroux.kevin.dofustuff.commons.item.Item;
+import com.giroux.kevin.dofustuff.dto.ItemCharacter;
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
-import org.json.JSONArray;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,26 +28,12 @@ public class ItemLoader extends AndroidHttpRequest {
 
     @Override
     protected void onPostExecute(Object o) {
-        List<Item> itemList = new ArrayList<>();
+        List<Item> listItem;
         if(o instanceof String){
-            JsonParser jsonParser = new JsonParser();
-            JsonElement element =jsonParser.parse((String)o);
-            if(element.isJsonArray()){
-                JsonArray jsonArray = element.getAsJsonArray();
-                for(JsonElement jsonElement : jsonArray){
-                    JsonObject object = jsonElement.getAsJsonObject();
-                    Item item = new Item();
-                    item.setName(object.get("name").getAsString());
-                    item.setLevel(object.get("level").getAsInt());
-                    if(object.has("imageId")){
-                        item.setItemId(object.get("imageId").getAsInt());
-                    }
-
-                    itemList.add(item);
-                }
+            listItem = new Gson().fromJson((String)o,new TypeToken<List<Item>>(){}.getType());
                 ItemAdapter itemAdapter = (ItemAdapter) this.getListObject().get("adapter");
-                itemAdapter.updateData(itemList);
-            }
+                itemAdapter.updateData(listItem);
+
         }
     }
 }

@@ -19,7 +19,7 @@ public class SearchItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_item);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.items);
+        RecyclerView recyclerView = findViewById(R.id.itemCharacters);
         final LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mLayoutManager.setReverseLayout(false);
@@ -32,7 +32,7 @@ public class SearchItemActivity extends AppCompatActivity {
         itemAdapter.setActivity(this);
         recyclerView.setAdapter(itemAdapter);
 
-        String url = "http://10.0.2.2:8080/items/level/200";
+        String url = "http://nexus-factory.ovh:9001/items/level/200";
         Map<String,String> paramStr = new HashMap<>();
         Map<String,Object> uiObject = new HashMap<>();
 

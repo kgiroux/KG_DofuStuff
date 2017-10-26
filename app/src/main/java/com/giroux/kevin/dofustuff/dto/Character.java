@@ -31,7 +31,7 @@ public class Character extends RealmObject {
 
 
     private String name;
-    private RealmList<Item> equipments;
+    private RealmList<ItemCharacter> equipments;
     private RealmList<CharacteristicClass> characteristicClasses;
     private RealmList<Characteristic> parchemin;
     private RealmList<Characteristic> caracteristics;
@@ -53,22 +53,19 @@ public class Character extends RealmObject {
 
     private int level;
     private String levelString;
-    public static Character creater(){
+    public static Character create(){
         Character character = new Character();
         character.initCharacter();
-        System.out.println("Passage ici 1");
         return character;
     }
 
 
 
     public Character() {
-       initCharacter();
-        System.out.println("Passage ici 2");
-
+       //initCharacter();
     }
 
-    private void initCharacter(){
+    public void initCharacter(){
         this.id = PrimaryKeyFactory.getInstance().nextKey(Character.class);
 
         nbCharacteristicPointAvailableStringOb = new ObservableField<>();
@@ -160,9 +157,7 @@ public class Character extends RealmObject {
 
     }
     public Character(final String name, final int level ){
-        System.out.println("Passage ici 3");
-
-        initCharacter();
+       initCharacter();
     }
 
     public Characteristic getCharacteristic(final String value) {
@@ -208,11 +203,11 @@ public class Character extends RealmObject {
         this.name = name;
     }
 
-    public RealmList<Item> getEquipments() {
+    public RealmList<ItemCharacter> getEquipments() {
         return equipments;
     }
 
-    public void setEquipments(RealmList<Item> equipments) {
+    public void setEquipments(RealmList<ItemCharacter> equipments) {
         this.equipments = equipments;
     }
 

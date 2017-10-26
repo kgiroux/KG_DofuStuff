@@ -11,5 +11,7 @@
     <dimen name="padding_default">24dp</dimen>
     <dimen name="signin_horizontal_margin">64dp</dimen>
     <dimen name="padding_bottom_pull_down">16dp</dimen>
+    <dimen name="margin_large">5dp</dimen>
+    <dimen name="margin_extra_large">15dp</dimen>
 
 </resources>

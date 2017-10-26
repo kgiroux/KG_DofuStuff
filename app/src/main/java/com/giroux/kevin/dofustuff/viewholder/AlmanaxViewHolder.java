@@ -9,7 +9,6 @@ import com.giroux.kevin.dofustuff.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import pl.droidsonroids.gif.GifImageView;
 
 /**
  * Created by kevin on 31/03/2017.

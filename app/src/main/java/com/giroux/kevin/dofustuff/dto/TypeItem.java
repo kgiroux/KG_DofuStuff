@@ -1,9 +1,10 @@
 package com.giroux.kevin.dofustuff.dto;
 
+import io.realm.annotations.RealmClass;
+
 /**
  * Created by kevin on 25/11/2016.
  */
-
 public enum TypeItem {
     /**
      * COIFFE
