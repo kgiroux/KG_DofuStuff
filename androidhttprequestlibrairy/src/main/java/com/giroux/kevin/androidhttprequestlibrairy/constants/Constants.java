@@ -42,12 +42,12 @@ public class Constants {
     public static final String CST_NO_FOUND = "Nothing found for the following url {} with these parameter {} for this method {}";
 
     public static String createLog(String cst, String ...params){
-
+        String retunrString = cst;
         for (String s: params) {
-            cst = cst.replaceFirst("\\{",s);
-            cst = cst.replaceFirst("\\}","");
+            retunrString = cst.replaceFirst("\\{",s);
+            retunrString = cst.replaceFirst("\\}","");
         }
 
-        return cst;
+        return retunrString;
     }
 }

@@ -1,0 +1,35 @@
+
+usquid:S00116"`Rename this field "nb_lancer_tour_joueur" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÂŞ¦]
+fsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óĞ˜	
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(û¬ÿ
+hsquid:S00116"RRename this field "id_sort" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷æÆÿ
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ˆ·Ä
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±Ğ²Ì
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(û¬ÿ
+squid:S00116"dRename this field "nb_lancer_entre_deux_tour" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬Å°şÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚ó¥„øÿÿÿÿ
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±Ğ²Ì
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íäëñ
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù„®ïùÿÿÿÿ
+vsquid:S00116"[Rename this field "effets_critiques" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÀÛÂĞşÿÿÿÿ
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãñâ¹
+tsquid:S00116"YRename this field "nb_lancer_tour" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•ÌÑîÿÿÿÿÿ
+osquid:S00116"YRename this field "effets_normaux" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÈ ã
+fsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô™Êl
+rsquid:S00116"\Rename this field "portee_modifiable" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óñ£
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ˆ·Ä
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—æÒ§ùÿÿÿÿ
+psquid:S00116"ZRename this field "cellules_libres" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã«Ø†
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßşš‹şÿÿÿÿ
+csquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óĞ˜	
+csquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô™Êl
+jsquid:S00116"TRename this field "ligne_vue" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Óøš
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚ó¥„øÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù„®ïùÿÿÿÿ
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—¼Â¦
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãñâ¹
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßşš‹şÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—æÒ§ùÿÿÿÿ
+psquid:S00116"ZRename this field "lancer_en_ligne" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š‹äÛ
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—¼Â¦
+tsquid:S00116"YRename this field "probabilite_cc" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆŸ­ñşÿÿÿÿ

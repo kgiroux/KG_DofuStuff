@@ -1,0 +1,16 @@
+
+‘"squid:ClassVariableVisibilityCheck"`Make NB_MAX_CARACTERISTIC a static final constant or non-public and provide accessors if needed.(ãşÉùÿÿÿÿ
+isquid:S3008"TRename this field "MAX_LEVEL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙåÖñ
+"squid:ClassVariableVisibilityCheck"UMake MAX_LEVEL a static final constant or non-public and provide accessors if needed.(ÙåÖñ
+psquid:S3008"[Rename this field "SIZE_PALIER_CARA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºÉ€´
+Dsquid:S1444"/Make this "public static MAX_LEVEL" field final(ÙåÖñ
+ssquid:S3008"YRename this field "MAX_LEVEL_CARA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùÃÖ…ÿÿÿÿÿ
+Ksquid:S1444"6Make this "public static SIZE_PALIER_CARA" field final(ºÉ€´
+Nsquid:S1444"4Make this "public static MAX_LEVEL_CARA" field final(ùÃÖ…ÿÿÿÿÿ
+ˆ"squid:ClassVariableVisibilityCheck"\Make SIZE_PALIER_CARA a static final constant or non-public and provide accessors if needed.(ºÉ€´
+[squid:UselessImportCheck"9Remove this unused import 'com.giroux.kevin.dofustuff.R'.(Ëñ™”
+Tsquid:S1444":Make this "public static NB_MAX_CARACTERISTIC" field final(ãşÉùÿÿÿÿ
+^squid:UselessImportCheck"7Remove this unused import 'io.realm.SyncConfiguration'.(µÿİıÿÿÿÿ
+‹"squid:ClassVariableVisibilityCheck"ZMake MAX_LEVEL_CARA a static final constant or non-public and provide accessors if needed.(ùÃÖ…ÿÿÿÿÿ
+ysquid:S3008"_Rename this field "NB_MAX_CARACTERISTIC" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãşÉùÿÿÿÿ
+Tsquid:S1118":Add a private constructor to hide the implicit public one.(“³±ûÿÿÿÿ

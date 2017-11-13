@@ -1,0 +1,13 @@
+
+hsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(®„í‹ýÿÿÿÿ
+ksquid:UselessImportCheck"CRemove this unused import 'android.support.design.widget.Snackbar'.( À®p8Ê¥ü¾õ+
+Ksquid:S1905"*Remove this unnecessary cast to "Toolbar".(ªü–ýÿÿÿÿ8¼£Ïøõ+
+Msquid:S1905",Remove this unnecessary cast to "ViewPager".(—¯¢•ûÿÿÿÿ8¼£Ïøõ+
+~squid:S1450"dRemove the "mSectionsPagerAdapter" field and declare it as a local variable in the relevant methods.(ÝÅýþÿÿÿÿ
+ssquid:S1450"YRemove the "mViewPager" field and declare it as a local variable in the relevant methods.(Õîµýúÿÿÿÿ
+Hsquid:S1905",Remove this unnecessary cast to "TabLayout".(éÍíà8¼£Ïøõ+
+–squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(´ÑÆ
+qsquid:S1450"WRemove the "tabIcons" field and declare it as a local variable in the relevant methods.(ŠØõµÿÿÿÿÿ
+Osquid:S1068"4Remove this unused "ARG_ID_CHARACTER" private field.(Çû­28ä×ñ¹õ+
+qsquid:UselessImportCheck"CRemove this unused import 'com.giroux.kevin.dofustuff.BuildConfig'.(å§ÉŒüÿÿÿÿ8ä×ñ¹õ+
+xsquid:UselessImportCheck"ORemove this unused import 'android.support.design.widget.FloatingActionButton'.(„Ÿ¹¼8Ê¥ü¾õ+

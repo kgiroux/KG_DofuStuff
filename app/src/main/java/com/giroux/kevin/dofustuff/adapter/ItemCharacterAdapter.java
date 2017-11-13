@@ -20,8 +20,8 @@ import java.util.List;
 
 public class ItemCharacterAdapter  extends RecyclerView.Adapter<ItemCharacterHolder>  {
 
-    private Context context;
-
+    private Activity context;
+    private int level;
     private List<Item> listItem = new ArrayList<>();
 
     @Override
@@ -34,6 +34,10 @@ public class ItemCharacterAdapter  extends RecyclerView.Adapter<ItemCharacterHol
     public void onBindViewHolder(ItemCharacterHolder holder, int position) {
 
         holder.getItemCharacterName().setText(listItem.get(position).getName());
+        holder.setLevel(this.level);
+        holder.setContext(context);
+        holder.setItem(listItem.get(position));
+
         if(null== listItem.get(position).getId()){
             holder.getImageView().setImageResource(listItem.get(position).getImageId());
         }else{
@@ -53,7 +57,11 @@ public class ItemCharacterAdapter  extends RecyclerView.Adapter<ItemCharacterHol
         notifyDataSetChanged();
     }
 
-    public void setContext(Context context) {
+    public void setActitity(Activity context) {
         this.context = context;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 }

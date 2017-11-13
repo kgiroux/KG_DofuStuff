@@ -1,0 +1,6 @@
+
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—Š¢æøÿÿÿÿ
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½Þ—ª
+?squid:S1068"*Remove this unused "classe" private field.(ƒ’Æ—
+nsquid:S00116"SRename this field "nom_sort" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù«Ñ’úÿÿÿÿ
+dsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½Þ—ª

@@ -1,0 +1,9 @@
+
+csquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(“ðÿØ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(’½õìûÿÿÿÿ
+[squid:UselessImportCheck"4Remove this unused import 'android.widget.TextView'.(„Ë‚ˆÿÿÿÿÿ
+Ysquid:UselessImportCheck"2Remove this unused import 'android.view.KeyEvent'.(ôÊÃ–úÿÿÿÿ
+esquid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(–ó¶Úûÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ªÝ¹µ
+esquid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(–ó¶Úûÿÿÿÿ

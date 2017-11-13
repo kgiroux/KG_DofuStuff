@@ -199,7 +199,7 @@ public class AndroidHttpRequest extends AsyncTask<String[], Void, Object> {
                     os.close();
                 }
             }
-            //Récupération des iformations de retour du serveur
+            //Récupération des iNformations de retour du serveur
             urlConnection.connect();
             object = performedCheckCodeMessage(urlConnection);
         } catch (IOException | JSONException ex ) {

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <android.support.v7.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
         android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         card_view:cardCornerRadius="8dp"
         android:layout_marginLeft="@dimen/margin_large"
         android:layout_marginRight="@dimen/margin_large"
@@ -26,7 +26,7 @@
                     android:id="@+id/itemImage"
                     android:scaleType="fitCenter"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="150dp"
                     android:src="@drawable/defaultcape"
 
                     />
@@ -63,7 +63,7 @@
                         android:id="@+id/CharacterChangeItem"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Craft" />
+                        android:text="Look for equiment" />
 
                 </LinearLayout>
 
