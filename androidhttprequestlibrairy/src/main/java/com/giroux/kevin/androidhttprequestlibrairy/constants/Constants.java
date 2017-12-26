@@ -43,10 +43,13 @@ public class Constants {
 
     public static String createLog(String cst, String ...params){
         String retunrString = cst;
-        for (String s: params) {
-            retunrString = cst.replaceFirst("\\{",s);
-            retunrString = cst.replaceFirst("\\}","");
+        if(cst != null){
+            for (String s: params) {
+                retunrString = cst.replaceFirst("\\{",s);
+                retunrString = cst.replaceFirst("\\}","");
+            }
         }
+
 
         return retunrString;
     }

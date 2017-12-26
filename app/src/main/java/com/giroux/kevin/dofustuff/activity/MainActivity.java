@@ -22,16 +22,12 @@ import com.giroux.kevin.dofustuff.activity.character.CharacterInformationActivit
 import com.giroux.kevin.dofustuff.activity.character.CreateActivity;
 import com.giroux.kevin.dofustuff.activity.search.SearchItemActivity;
 import com.giroux.kevin.dofustuff.adapter.CharacterAdapter;
-import com.giroux.kevin.dofustuff.constants.Constants;
-import com.giroux.kevin.dofustuff.constants.DofusRealmSyncConfiguration;
 import com.giroux.kevin.dofustuff.database.PrimaryKeyFactory;
 import com.giroux.kevin.dofustuff.dto.Character;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
-import io.realm.SyncConfiguration;
-import io.realm.SyncUser;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -66,20 +62,8 @@ public class MainActivity extends AppCompatActivity
         recyclerView.setHasFixedSize(false);
         recyclerView.setNestedScrollingEnabled(false);
         config = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
-        SyncConfiguration configSync = null;
-        SyncUser user = SyncUser.currentUser();
-        if(user != null){
-            DofusRealmSyncConfiguration.setUser(user);
-            Log.i("Current User", SyncUser.currentUser().toJson());
-            DofusRealmSyncConfiguration.setUrl(Constants.REALM_URL);
-            Log.i("Current URL", Constants.REALM_URL);
-            configSync  = DofusRealmSyncConfiguration.getInstance() .getSyncConfiguration();
-        }
-        if(configSync != null){
-            realm = Realm.getInstance(configSync);
-        }else{
-            realm = Realm.getInstance(config);
-        }
+
+        realm = Realm.getDefaultInstance();
         try{
             PrimaryKeyFactory.getInstance().initialize(realm);
         }catch (IllegalStateException ex){

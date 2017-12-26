@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="5dp"
+    android:layout_margin="10dp"
     card_view:cardBackgroundColor="@android:color/white"
     card_view:cardCornerRadius="4dp"
     card_view:cardElevation="2dp">
@@ -23,14 +23,18 @@
             android:scaleType="center" />
 
         <TextView
-            android:layout_margin="@dimen/text_margin"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:layout_marginEnd="@dimen/text_margin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/itemLevel"
             android:text="@string/app_name"
             android:layout_below="@+id/itemImage"
             android:background="?android:selectableItemBackground"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -40,16 +44,23 @@
             android:textSize="15sp"
             android:layout_below="@+id/itemLevel"
             android:background="?android:selectableItemBackground"
-            android:layout_margin="@dimen/text_margin"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:layout_marginEnd="@dimen/text_margin"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:textColor="#333" />
 
+
         <ListView
+            android:visibility="gone"
+            android:id="@+id/itemEffects"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/itemName"
             android:layout_margin="@dimen/text_margin"
             android:textSize="15sp">
-
 
         </ListView>
 

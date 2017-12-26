@@ -3,10 +3,8 @@ package com.giroux.kevin.dofustuff.activity.character.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,16 +13,11 @@ import com.giroux.kevin.dofustuff.R;
 import com.giroux.kevin.dofustuff.adapter.ItemCharacterAdapter;
 import com.giroux.kevin.dofustuff.commons.item.Item;
 import com.giroux.kevin.dofustuff.commons.item.ItemCategory;
-import com.giroux.kevin.dofustuff.constants.DofusRealmSyncConfiguration;
 import com.giroux.kevin.dofustuff.dto.Character;
-import com.giroux.kevin.dofustuff.dto.ItemDisplay;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import io.realm.Realm;
 
 /**
@@ -167,7 +160,7 @@ public class ItemFragment extends Fragment {
 
 
     public void initView(long id) {
-        realm = Realm.getInstance(DofusRealmSyncConfiguration.getInstance().getSyncConfiguration());
+        realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         character = realm.where(Character.class).equalTo("id", id).findFirst();
         realm.commitTransaction();

@@ -2,7 +2,6 @@ package com.giroux.kevin.dofustuff.activity.character;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -14,7 +13,6 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 import com.giroux.kevin.dofustuff.R;
-import com.giroux.kevin.dofustuff.constants.DofusRealmSyncConfiguration;
 import com.giroux.kevin.dofustuff.databinding.ActivityCreateBinding;
 import com.giroux.kevin.dofustuff.dto.Character;
 import com.giroux.kevin.dofustuff.dto.SexType;
@@ -25,9 +23,6 @@ import org.apache.commons.lang3.StringUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
-import io.realm.RealmConfiguration;
-import io.realm.SyncConfiguration;
-import io.realm.SyncUser;
 import pl.droidsonroids.gif.GifImageView;
 
 public class CreateActivity extends AppCompatActivity implements Toolbar.OnClickListener, AdapterView.OnItemSelectedListener {
@@ -50,19 +45,9 @@ public class CreateActivity extends AppCompatActivity implements Toolbar.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SyncUser user = SyncUser.currentUser();
         final ActivityCreateBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_create);
         ButterKnife.bind(this);
-        SyncConfiguration configSync = null;
-        if(user != null){
-            configSync  = DofusRealmSyncConfiguration.getInstance().getSyncConfiguration();
-        }
-        RealmConfiguration config = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
-        if(configSync !=null){
-            realm = Realm.getInstance(configSync);
-        }else{
-            realm = Realm.getInstance(config);
-        }
+        realm = Realm.getDefaultInstance();
         character = new Character();
         character.initCharacter();
         binding.setCharacter(character);

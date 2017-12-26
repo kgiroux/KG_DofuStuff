@@ -35,7 +35,9 @@ public class ItemAdapter extends RecyclerView.Adapter {
             ItemViewHolder itemsViewHolder = (ItemViewHolder) holder;
             itemsViewHolder.getItemLevel().setText(new StringBuilder().append("Level : ").append(String.valueOf(this.itemList.get(position).getLevel())).toString());
             itemsViewHolder.getItemName().setText(this.itemList.get(position).getName());
-            Glide.with(this.activity).load("http://nexus-factory.ovh:9002/medias/"+ this.itemList.get(position).getId()).into(itemsViewHolder.getGifImageView());
+            itemsViewHolder.setContext(activity.getApplicationContext());
+            itemsViewHolder.setItem(this.itemList.get(position));
+            Glide.with(this.activity).load("http://nexus-factory.ovh:9002/medias/"+ this.itemList.get(position).getImageId()).into(itemsViewHolder.getGifImageView());
         }
     }
 
@@ -54,6 +56,10 @@ public class ItemAdapter extends RecyclerView.Adapter {
         this.notifyDataSetChanged();
     }
 
+    public void resetData(){
+        this.itemList.clear();
+        this.notifyDataSetChanged();
+    }
     public void setActivity(Activity activity){
         this.activity = activity;
     }
