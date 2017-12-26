@@ -46,8 +46,7 @@ public class SearchItemActivity extends AppCompatActivity {
         itemAdapter = new ItemAdapter();
         itemAdapter.setActivity(this);
         recyclerView.setAdapter(itemAdapter);
-
-        //loadData(category);
+        
         Spinner spinner = findViewById(R.id.spinner);
 
         final List<ItemCategory> categories = Arrays.asList(ItemCategory.values());
