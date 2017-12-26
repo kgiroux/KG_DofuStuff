@@ -1,4 +1,7 @@
 language: android
+sudo: required
+dist: trusty
+group: deprecated-2017Q4
 android:
   components:
     # Uncomment the lines below if you want to
