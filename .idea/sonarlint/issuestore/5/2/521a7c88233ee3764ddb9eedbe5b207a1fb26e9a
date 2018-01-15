@@ -1,293 +1,0 @@
-
-‘"squid:ClassVariableVisibilityCheck"eMake FontFamilyFont_fontWeight a static final constant or non-public and provide accessors if needed.( ÆÕ¨
-]squid:S1444"HMake this "public static TextAppearance_Compat_Notification" field final(×ı†—
-ksquid:S3008"VRename this field "action_text" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÒÁ
-Ÿ"squid:ClassVariableVisibilityCheck"sMake compat_button_padding_vertical_material a static final constant or non-public and provide accessors if needed.(˜Üëî
-„"squid:ClassVariableVisibilityCheck"XMake action_image a static final constant or non-public and provide accessors if needed.(ñàëà
-}"squid:ClassVariableVisibilityCheck"QMake text2 a static final constant or non-public and provide accessors if needed.(ºÈ„ƒ
-‡squid:S3008"rRename this field "compat_button_padding_vertical_material" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜Üëî
-Nsquid:S1444"9Make this "public static FontFamilyFont_font" field final(Ôˆ®
-?squid:S1444"*Make this "public static font" field final(¾áÇ˜
-Xsquid:S1444"CMake this "public static notification_action_icon_size" field final(ûÆâï
-‡"squid:ClassVariableVisibilityCheck"VMake icon_group a static final constant or non-public and provide accessors if needed.(×»÷¡şÿÿÿÿ
-[squid:S1444"AMake this "public static notification_bg_low_pressed" field final(‚˜ˆëüÿÿÿÿ
-Tsquid:S1118":Add a private constructor to hide the implicit public one.(ªì‹îúÿÿÿÿ
-Tsquid:S1118":Add a private constructor to hide the implicit public one.(üŸµäûÿÿÿÿ
-Gsquid:S1444"2Make this "public static action_image" field final(ñàëà
-Fsquid:S1444"1Make this "public static action_text" field final(âÒÁ
-œ"squid:ClassVariableVisibilityCheck"kMake notification_top_pad_large_text a static final constant or non-public and provide accessors if needed.(„£àšıÿÿÿÿ
-asquid:S1444"GMake this "public static notification_content_margin_start" field final(üŸØ¡şÿÿÿÿ
-‚squid:S3008"mRename this field "notification_main_column_container" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦ğÔ”
-Lsquid:S1444"7Make this "public static fontProviderCerts" field final(§œÁ
-hsquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ÑÓÂéøÿÿÿÿ
-Gsquid:S1444"-Make this "public static actions" field final(£øÉüÿÿÿÿ
-Tsquid:S1444"?Make this "public static fontProviderFetchStrategy" field final(™İªí
-}squid:S3008"cRename this field "notification_main_column" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»«Ï…øÿÿÿÿ
-Csquid:S1444".Make this "public static blocking" field final(¸üè
-†squid:S3008"lRename this field "notify_panel_notification_icon_bg" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÄùªÏûÿÿÿÿ
-]squid:S1444"HMake this "public static notification_main_column_container" field final(¦ğÔ”
-_squid:S1444"JMake this "public static notification_main_column_padding_top" field final(·²¤ 
-osquid:S3008"URename this field "right_icon" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§®Ò‡úÿÿÿÿ
-ƒ"squid:ClassVariableVisibilityCheck"WMake action_text a static final constant or non-public and provide accessors if needed.(âÒÁ
-ssquid:S3008"^Rename this field "FontFamilyFont_font" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ôˆ®
-…squid:S3008"pRename this field "status_bar_notification_info_overflow" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚ªÏ¸
-ˆsquid:S3008"sRename this field "TextAppearance_Compat_Notification_Title" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æ‰ıÕ
-"squid:ClassVariableVisibilityCheck"cMake notification_background a static final constant or non-public and provide accessors if needed.(êÆ’
-}squid:S3008"hRename this field "notification_action_icon_size" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ûÆâï
-~"squid:ClassVariableVisibilityCheck"RMake normal a static final constant or non-public and provide accessors if needed.(€îâ
-hsquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(»Êõ”üÿÿÿÿ
-}squid:S3008"hRename this field "notification_template_icon_bg" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úß²¶
-_squid:S1444"EMake this "public static notification_top_pad_large_text" field final(„£àšıÿÿÿÿ
-\squid:S1444"GMake this "public static notification_template_icon_low_bg" field final(ŞÁÍ
-‰"squid:ClassVariableVisibilityCheck"]Make fontProviderCerts a static final constant or non-public and provide accessors if needed.(§œÁ
-’"squid:ClassVariableVisibilityCheck"fMake notification_bg_low_normal a static final constant or non-public and provide accessors if needed.(Úø—ï
-’"squid:ClassVariableVisibilityCheck"fMake notification_icon_bg_color a static final constant or non-public and provide accessors if needed.(Äª•
-^squid:S1444"IMake this "public static FontFamily_fontProviderFetchTimeout" field final(“şñ¥
-hsquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(üŸµäûÿÿÿÿ
-€squid:S3008"kRename this field "notification_action_color_filter" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î…Åõ
-Isquid:S1444"4Make this "public static action_divider" field final(è®Ú‚
-”"squid:ClassVariableVisibilityCheck"hMake FontFamily_fontProviderQuery a static final constant or non-public and provide accessors if needed.(ïíî™
-Wsquid:S1444"CMake this "public static notification_action_text_size" field final(ë©­J
-nsquid:S3008"YRename this field "action_divider" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è®Ú‚
-@squid:S1444"+Make this "public static text2" field final(ºÈ„ƒ
-"squid:ClassVariableVisibilityCheck"rMake notification_template_part_chronometer a static final constant or non-public and provide accessors if needed.(ŠL
-osquid:S3008"URename this field "icon_group" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×»÷¡şÿÿÿÿ
-Asquid:S1444",Make this "public static normal" field final(€îâ
-tsquid:S3008"_Rename this field "notification_tile_bg" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ¨À€
-vsquid:S3008"aRename this field "notification_bg_normal" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•–ïß
-Gsquid:S1444"-Make this "public static forever" field final(¡È‘ùÿÿÿÿ
-Tsquid:S1444":Make this "public static notification_top_pad" field final(´ñıøÿÿÿÿ
-Dsquid:S1444"0Make this "public static FontFamily" field final(¹ô‚m
-ƒ"squid:ClassVariableVisibilityCheck"RMake italic a static final constant or non-public and provide accessors if needed.(¡“áÏùÿÿÿÿ
-‘"squid:ClassVariableVisibilityCheck"eMake notification_subtext_size a static final constant or non-public and provide accessors if needed.(¯ÏÚÒ
-"squid:ClassVariableVisibilityCheck"_Make fontProviderPackage a static final constant or non-public and provide accessors if needed.(˜ò›¶øÿÿÿÿ
-"squid:ClassVariableVisibilityCheck"qMake secondary_text_default_material_light a static final constant or non-public and provide accessors if needed.(ŞÑ™Â
-hsquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ÙÁöŠûÿÿÿÿ
-[squid:S1444"FMake this "public static notification_template_custom_big" field final(¡’´ª
-†"squid:ClassVariableVisibilityCheck"UMake fontStyle a static final constant or non-public and provide accessors if needed.(ìœœıÿÿÿÿ
-–"squid:ClassVariableVisibilityCheck"jMake FontFamily_fontProviderPackage a static final constant or non-public and provide accessors if needed.(Ï–Œ
-Qsquid:S1444"<Make this "public static notification_bg_normal" field final(•–ïß
-œ"squid:ClassVariableVisibilityCheck"pMake FontFamily_fontProviderFetchStrategy a static final constant or non-public and provide accessors if needed.(°­Šö
-Tsquid:S1118":Add a private constructor to hide the implicit public one.(Ğíõªúÿÿÿÿ
-Tsquid:S1118":Add a private constructor to hide the implicit public one.(Ä±†¬úÿÿÿÿ
-Tsquid:S1118":Add a private constructor to hide the implicit public one.(ÙÁöŠûÿÿÿÿ
-Esquid:S1444"+Make this "public static line1" field final(Ÿˆ‚ôûÿÿÿÿ
-’"squid:ClassVariableVisibilityCheck"aMake fontProviderAuthority a static final constant or non-public and provide accessors if needed.(ªÅ¨–ûÿÿÿÿ
-^squid:S1444"DMake this "public static notification_big_circle_margin" field final(Ï¡ÅÒüÿÿÿÿ
-…squid:S3008"pRename this field "secondary_text_default_material_light" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŞÑ™Â
-Wsquid:S1444"BMake this "public static notification_right_icon_size" field final(‹†½°
-Ysquid:S1444"DMake this "public static FontFamily_fontProviderPackage" field final(Ï–Œ
-“"squid:ClassVariableVisibilityCheck"hMake notification_icon_background a static final constant or non-public and provide accessors if needed.(ì“ş8
-‡"squid:ClassVariableVisibilityCheck"VMake right_icon a static final constant or non-public and provide accessors if needed.(§®Ò‡úÿÿÿÿ
-usquid:S3008"`Rename this field "ripple_material_light" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(º»ç›
-hsquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ğíõªúÿÿÿÿ
-hsquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ä±†¬úÿÿÿÿ
-Ssquid:S1444">Make this "public static FontFamilyFont_fontStyle" field final(ÿÌ»Â
-•"squid:ClassVariableVisibilityCheck"iMake notification_action_icon_size a static final constant or non-public and provide accessors if needed.(ûÆâï
-squid:S3008"gRename this field "FontFamily_fontProviderCerts" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿ªãİıÿÿÿÿ
-asquid:S1444"GMake this "public static notify_panel_notification_icon_bg" field final(ÄùªÏûÿÿÿÿ
-¢"squid:ClassVariableVisibilityCheck"qMake compat_button_inset_vertical_material a static final constant or non-public and provide accessors if needed.(ÏËÍóùÿÿÿÿ
-„squid:S3008"jRename this field "notification_top_pad_large_text" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„£àšıÿÿÿÿ
-psquid:S3008"[Rename this field "action_container" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áŞ©š
-•"squid:ClassVariableVisibilityCheck"jMake notification_large_icon_height a static final constant or non-public and provide accessors if needed.(ÙîÌ9
-ƒsquid:S3008"nRename this field "notification_right_side_padding_top" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏÙ’ˆ
-"squid:ClassVariableVisibilityCheck"PMake info a static final constant or non-public and provide accessors if needed.(Ó¼¸ûÿÿÿÿ
-ysquid:S3008"dRename this field "abc_action_bar_embed_tabs" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÕÖ¶‡
-ysquid:S3008"dRename this field "notification_subtext_size" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯ÏÚÒ
-—"squid:ClassVariableVisibilityCheck"kMake notification_template_part_time a static final constant or non-public and provide accessors if needed.(¦àÅê
-}squid:S3008"hRename this field "notification_action_tombstone" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡‘Îõ
-Nsquid:S1444"9Make this "public static notification_bg_low" field final(…Ë“ë
-Esquid:S1444"+Make this "public static line3" field final(¿õî¿øÿÿÿÿ
-ssquid:S3008"^Rename this field "notification_bg_low" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…Ë“ë
-˜"squid:ClassVariableVisibilityCheck"lMake notification_action_color_filter a static final constant or non-public and provide accessors if needed.(î…Åõ
-Tsquid:S1118":Add a private constructor to hide the implicit public one.(ôåÿ¬úÿÿÿÿ
-ysquid:S3008"_Rename this field "notification_top_pad" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´ñıøÿÿÿÿ
-Dsquid:S1444"*Make this "public static icon" field final(¶¥¤øÿÿÿÿ
-Xsquid:S1444">Make this "public static notification_main_column" field final(»«Ï…øÿÿÿÿ
-›"squid:ClassVariableVisibilityCheck"oMake notification_right_side_padding_top a static final constant or non-public and provide accessors if needed.(ÏÙ’ˆ
-7squid:S2386"Make this member "protected".(Ì ùÄüÿÿÿÿ
-jsquid:S1444"PMake this "public static notification_small_icon_background_padding" field final(˜ˆùıúÿÿÿÿ
-–"squid:ClassVariableVisibilityCheck"jMake notification_bg_normal_pressed a static final constant or non-public and provide accessors if needed.(°Êãë
-Osquid:S1118":Add a private constructor to hide the implicit public one.(Â÷ı
-Ksquid:S1444"6Make this "public static action_container" field final(áŞ©š
-{squid:S3008"gRename this field "notification_icon_background" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì“ş8
-Tsquid:S1444"?Make this "public static FontFamilyFont_fontWeight" field final( ÆÕ¨
-Ssquid:S1444">Make this "public static fontProviderFetchTimeout" field final(ÚàÕ­
-Psquid:S1444";Make this "public static ripple_material_light" field final(º»ç›
-•"squid:ClassVariableVisibilityCheck"iMake notification_template_icon_bg a static final constant or non-public and provide accessors if needed.(úß²¶
-"squid:ClassVariableVisibilityCheck"dMake FontFamilyFont_fontStyle a static final constant or non-public and provide accessors if needed.(ÿÌ»Â
-^squid:S1444"DMake this "public static notification_action_background" field final(ä¼è¦ÿÿÿÿÿ
-hsquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ªì‹îúÿÿÿÿ
-ssquid:S3008"YRename this field "FontFamilyFont" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì ùÄüÿÿÿÿ
-Šsquid:S3008"pRename this field "notification_small_icon_size_as_large" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯†Ë ıÿÿÿÿ
-esquid:S1444"KMake this "public static notification_small_icon_size_as_large" field final(¯†Ë ıÿÿÿÿ
->squid:S1444"*Make this "public static text" field final(«şû
-"squid:ClassVariableVisibilityCheck"dMake fontProviderFetchTimeout a static final constant or non-public and provide accessors if needed.(ÚàÕ­
-Œ"squid:ClassVariableVisibilityCheck"`Make notification_tile_bg a static final constant or non-public and provide accessors if needed.(ÿ¨À€
-squid:S3008"uRename this field "notification_small_icon_background_padding" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜ˆùıúÿÿÿÿ
-wsquid:S3008"bRename this field "notification_background" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÆ’
-hsquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ˆ©ÖÀüÿÿÿÿ
-ssquid:S3008"^Rename this field "notification_action" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬´ô¤
-›"squid:ClassVariableVisibilityCheck"jMake compat_control_corner_material a static final constant or non-public and provide accessors if needed.(Õ‰ò¡üÿÿÿÿ
-esquid:S1444"KMake this "public static compat_button_inset_vertical_material" field final(ÏËÍóùÿÿÿÿ
-€squid:S3008"fRename this field "notification_bg_low_pressed" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚˜ˆëüÿÿÿÿ
-Ksquid:S1444"7Make this "public static fontProviderQuery" field final(Ù©î1
-Fsquid:S1444",Make this "public static italic" field final(¡“áÏùÿÿÿÿ
-|squid:S3008"gRename this field "notification_right_icon_size" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹†½°
-Usquid:S1444";Make this "public static fontProviderAuthority" field final(ªÅ¨–ûÿÿÿÿ
-Xsquid:S1444"DMake this "public static notification_large_icon_height" field final(ÙîÌ9
-ƒsquid:S3008"nRename this field "status_bar_notification_info_maxnum" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùİò
-`squid:S1444"FMake this "public static notification_media_narrow_margin" field final(öüµÕüÿÿÿÿ
-csquid:S1444"NMake this "public static TextAppearance_Compat_Notification_Line2" field final(„çæØ
-Jsquid:S1444"0Make this "public static right_icon" field final(§®Ò‡úÿÿÿÿ
-„"squid:ClassVariableVisibilityCheck"SMake actions a static final constant or non-public and provide accessors if needed.(£øÉüÿÿÿÿ
-squid:S3008"jRename this field "notification_template_part_time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦àÅê
-‡squid:S3008"rRename this field "TextAppearance_Compat_Notification_Time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠË³å
-‹"squid:ClassVariableVisibilityCheck"_Make FontFamilyFont_font a static final constant or non-public and provide accessors if needed.(Ôˆ®
-˜"squid:ClassVariableVisibilityCheck"gMake notification_bg_low_pressed a static final constant or non-public and provide accessors if needed.(‚˜ˆëüÿÿÿÿ
-{"squid:ClassVariableVisibilityCheck"PMake text a static final constant or non-public and provide accessors if needed.(«şû
-‹"squid:ClassVariableVisibilityCheck"ZMake FontFamilyFont a static final constant or non-public and provide accessors if needed.(Ì ùÄüÿÿÿÿ
-Osquid:S1444":Make this "public static notification_tile_bg" field final(ÿ¨À€
-isquid:S1444"OMake this "public static Widget_Compat_NotificationActionContainer" field final(¥°¦ûÿÿÿÿ
-Fsquid:S1444"1Make this "public static chronometer" field final(ÃÎÆ£
-”"squid:ClassVariableVisibilityCheck"hMake notification_right_icon_size a static final constant or non-public and provide accessors if needed.(‹†½°
-Jsquid:S1444"0Make this "public static icon_group" field final(×»÷¡şÿÿÿÿ
-§"squid:ClassVariableVisibilityCheck"vMake notification_small_icon_background_padding a static final constant or non-public and provide accessors if needed.(˜ˆùıúÿÿÿÿ
-\squid:S1444"BMake this "public static FontFamily_fontProviderCerts" field final(¿ªãİıÿÿÿÿ
-gsquid:S1444"MMake this "public static TextAppearance_Compat_Notification_Info" field final(Â¬èËüÿÿÿÿ
-…squid:S3008"kRename this field "FontFamily_fontProviderAuthority" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«±Éşÿÿÿÿ
-|squid:S3008"gRename this field "FontFamily_fontProviderQuery" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïíî™
-Tsquid:S1118":Add a private constructor to hide the implicit public one.(ÑÓÂéøÿÿÿÿ
-|squid:S3008"hRename this field "notification_action_text_size" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ë©­J
-Nsquid:S1444"9Make this "public static notification_action" field final(¬´ô¤
-Rsquid:S1444"=Make this "public static notification_background" field final(êÆ’
-Nsquid:S1444"4Make this "public static FontFamilyFont" field final(Ì ùÄüÿÿÿÿ
-zsquid:S3008"eRename this field "notification_bg_low_normal" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úø—ï
-jsquid:S3008"URename this field "right_side" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…÷Ğ
-ƒsquid:S3008"nRename this field "FontFamily_fontProviderFetchTimeout" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“şñ¥
-|"squid:ClassVariableVisibilityCheck"PMake time a static final constant or non-public and provide accessors if needed.(îı×ù
-^squid:S1444"DMake this "public static compat_control_corner_material" field final(Õ‰ò¡üÿÿÿÿ
-^squid:S1444"IMake this "public static status_bar_notification_info_maxnum" field final(ùİò
-Xsquid:S1444"CMake this "public static notification_template_icon_bg" field final(úß²¶
-"squid:ClassVariableVisibilityCheck"aMake ripple_material_light a static final constant or non-public and provide accessors if needed.(º»ç›
-‘"squid:ClassVariableVisibilityCheck"eMake abc_action_bar_embed_tabs a static final constant or non-public and provide accessors if needed.(ÕÖ¶‡
-‰squid:S3008"oRename this field "Widget_Compat_NotificationActionText" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ĞÍØØüÿÿÿÿ
-•"squid:ClassVariableVisibilityCheck"dMake notification_main_column a static final constant or non-public and provide accessors if needed.(»«Ï…øÿÿÿÿ
-hsquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ôåÿ¬úÿÿÿÿ
-ysquid:S3008"dRename this field "FontFamilyFont_fontWeight" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ÆÕ¨
-Zsquid:S1444"EMake this "public static notification_template_part_time" field final(¦àÅê
-Tsquid:S1444"?Make this "public static abc_action_bar_embed_tabs" field final(ÕÖ¶‡
-bsquid:S1444"MMake this "public static TextAppearance_Compat_Notification_Time" field final(ŠË³å
-„"squid:ClassVariableVisibilityCheck"SMake forever a static final constant or non-public and provide accessors if needed.(¡È‘ùÿÿÿÿ
-˜"squid:ClassVariableVisibilityCheck"lMake notification_template_custom_big a static final constant or non-public and provide accessors if needed.(¡’´ª
-bsquid:S1444"MMake this "public static compat_button_padding_vertical_material" field final(˜Üëî
-š"squid:ClassVariableVisibilityCheck"iMake notification_large_icon_width a static final constant or non-public and provide accessors if needed.(ı†ÇŸúÿÿÿÿ
-š"squid:ClassVariableVisibilityCheck"nMake TextAppearance_Compat_Notification a static final constant or non-public and provide accessors if needed.(×ı†—
-@squid:S1444"+Make this "public static title" field final(Áò
-lsquid:S3008"WRename this field "action_image" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñàëà
-bsquid:S1444"MMake this "public static compat_button_inset_horizontal_material" field final(ºşÜ
-Xsquid:S1444"CMake this "public static notification_action_tombstone" field final(¡‘Îõ
-Tsquid:S1118":Add a private constructor to hide the implicit public one.(»Êõ”üÿÿÿÿ
-¦"squid:ClassVariableVisibilityCheck"uMake Widget_Compat_NotificationActionContainer a static final constant or non-public and provide accessors if needed.(¥°¦ûÿÿÿÿ
-•"squid:ClassVariableVisibilityCheck"iMake notification_action_tombstone a static final constant or non-public and provide accessors if needed.(¡‘Îõ
-`squid:S1444"FMake this "public static notification_template_icon_group" field final(Ï·áÜùÿÿÿÿ
-™"squid:ClassVariableVisibilityCheck"mMake notification_template_icon_low_bg a static final constant or non-public and provide accessors if needed.(ŞÁÍ
-"squid:ClassVariableVisibilityCheck"PMake icon a static final constant or non-public and provide accessors if needed.(¶¥¤øÿÿÿÿ
- "squid:ClassVariableVisibilityCheck"tMake TextAppearance_Compat_Notification_Line2 a static final constant or non-public and provide accessors if needed.(„çæØ
-‚"squid:ClassVariableVisibilityCheck"VMake right_side a static final constant or non-public and provide accessors if needed.(…÷Ğ
-Osquid:S1118":Add a private constructor to hide the implicit public one.(œö³æ
-…squid:S3008"kRename this field "notification_template_icon_group" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï·áÜùÿÿÿÿ
-osquid:S3008"ZRename this field "notification_bg" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›¸ï¤
-csquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ÆîÀß
-›"squid:ClassVariableVisibilityCheck"jMake notification_big_circle_margin a static final constant or non-public and provide accessors if needed.(Ï¡ÅÒüÿÿÿÿ
-œ"squid:ClassVariableVisibilityCheck"pMake notification_main_column_padding_top a static final constant or non-public and provide accessors if needed.(·²¤ 
-‹"squid:ClassVariableVisibilityCheck"_Make notification_bg_low a static final constant or non-public and provide accessors if needed.(…Ë“ë
-ˆsquid:S3008"sRename this field "TextAppearance_Compat_Notification_Line2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„çæØ
-Osquid:S1118":Add a private constructor to hide the implicit public one.(ÆîÀß
-‚squid:S3008"mRename this field "TextAppearance_Compat_Notification" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×ı†—
-Ysquid:S1444"DMake this "public static notification_bg_normal_pressed" field final(°Êãë
-€squid:S3008"kRename this field "notification_template_custom_big" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡’´ª
-€"squid:ClassVariableVisibilityCheck"TMake blocking a static final constant or non-public and provide accessors if needed.(¸üè
- "squid:ClassVariableVisibilityCheck"tMake TextAppearance_Compat_Notification_Title a static final constant or non-public and provide accessors if needed.(æ‰ıÕ
-squid:S3008"tRename this field "compat_button_padding_horizontal_material" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ùİ®ûÿÿÿÿ
-csquid:S1444"NMake this "public static TextAppearance_Compat_Notification_Title" field final(æ‰ıÕ
-†"squid:ClassVariableVisibilityCheck"ZMake action_divider a static final constant or non-public and provide accessors if needed.(è®Ú‚
-"squid:ClassVariableVisibilityCheck"lMake notification_template_icon_group a static final constant or non-public and provide accessors if needed.(Ï·áÜùÿÿÿÿ
-]squid:S1444"CMake this "public static notification_large_icon_width" field final(ı†ÇŸúÿÿÿÿ
-zsquid:S3008"eRename this field "notification_icon_bg_color" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Äª•
-„squid:S3008"oRename this field "notification_main_column_padding_top" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·²¤ 
-[squid:S1444"FMake this "public static notification_action_color_filter" field final(î…Åõ
-›"squid:ClassVariableVisibilityCheck"jMake notification_action_background a static final constant or non-public and provide accessors if needed.(ä¼è¦ÿÿÿÿÿ
-|"squid:ClassVariableVisibilityCheck"QMake async a static final constant or non-public and provide accessors if needed.(›÷Ğa
-Isquid:S1444"/Make this "public static fontStyle" field final(ìœœıÿÿÿÿ
-^squid:S1444"IMake this "public static notification_right_side_padding_top" field final(ÏÙ’ˆ
-ƒsquid:S3008"iRename this field "compat_control_corner_material" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ‰ò¡üÿÿÿÿ
-Dsquid:S1444"*Make this "public static info" field final(Ó¼¸ûÿÿÿÿ
-`squid:S1444"KMake this "public static status_bar_notification_info_overflow" field final(‚ªÏ¸
-|"squid:ClassVariableVisibilityCheck"PMake font a static final constant or non-public and provide accessors if needed.(¾áÇ˜
-›"squid:ClassVariableVisibilityCheck"oMake status_bar_notification_info_maxnum a static final constant or non-public and provide accessors if needed.(ùİò
-squid:S3008"lRename this field "notification_template_icon_low_bg" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŞÁÍ
-~squid:S3008"iRename this field "notification_bg_normal_pressed" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°Êãë
-~squid:S3008"iRename this field "FontFamily_fontProviderPackage" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï–Œ
-Jsquid:S1444"0Make this "public static fontWeight" field final(®°ÊĞûÿÿÿÿ
-‚"squid:ClassVariableVisibilityCheck"QMake line3 a static final constant or non-public and provide accessors if needed.(¿õî¿øÿÿÿÿ
-”"squid:ClassVariableVisibilityCheck"iMake notification_action_text_size a static final constant or non-public and provide accessors if needed.(ë©­J
-"squid:ClassVariableVisibilityCheck"qMake status_bar_notification_info_overflow a static final constant or non-public and provide accessors if needed.(‚ªÏ¸
-…squid:S3008"kRename this field "notification_media_narrow_margin" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öüµÕüÿÿÿÿ
-Ÿ"squid:ClassVariableVisibilityCheck"sMake compat_button_inset_horizontal_material a static final constant or non-public and provide accessors if needed.(ºşÜ
-"squid:ClassVariableVisibilityCheck"lMake FontFamily_fontProviderAuthority a static final constant or non-public and provide accessors if needed.(«±Éşÿÿÿÿ
-™"squid:ClassVariableVisibilityCheck"hMake FontFamily_fontProviderCerts a static final constant or non-public and provide accessors if needed.(¿ªãİıÿÿÿÿ
-‡"squid:ClassVariableVisibilityCheck"[Make notification_bg a static final constant or non-public and provide accessors if needed.(›¸ï¤
-Ssquid:S1444"9Make this "public static fontProviderPackage" field final(˜ò›¶øÿÿÿÿ
-‚"squid:ClassVariableVisibilityCheck"QMake line1 a static final constant or non-public and provide accessors if needed.(Ÿˆ‚ôûÿÿÿÿ
-`squid:S1444"KMake this "public static secondary_text_default_material_light" field final(ŞÑ™Â
-}squid:S3008"iRename this field "notification_large_icon_height" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙîÌ9
-isquid:S3008"URename this field "FontFamily" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹ô‚m
-Vsquid:S1444"BMake this "public static notification_icon_background" field final(ì“ş8
-Ÿ"squid:ClassVariableVisibilityCheck"sMake TextAppearance_Compat_Notification_Time a static final constant or non-public and provide accessors if needed.(ŠË³å
-csquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Â÷ı
-ƒsquid:S3008"iRename this field "notification_big_circle_margin" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï¡ÅÒüÿÿÿÿ
-‘"squid:ClassVariableVisibilityCheck"eMake fontProviderFetchStrategy a static final constant or non-public and provide accessors if needed.(™İªí
-‹"squid:ClassVariableVisibilityCheck"_Make notification_action a static final constant or non-public and provide accessors if needed.(¬´ô¤
-"squid:ClassVariableVisibilityCheck"mMake notification_content_margin_start a static final constant or non-public and provide accessors if needed.(üŸØ¡şÿÿÿÿ
-?squid:S1444"+Make this "public static async" field final(›÷Ğa
-dsquid:S1444"JMake this "public static Widget_Compat_NotificationActionText" field final(ĞÍØØüÿÿÿÿ
-Wsquid:S1444"BMake this "public static FontFamily_fontProviderQuery" field final(ïíî™
-ˆ"squid:ClassVariableVisibilityCheck"\Make action_container a static final constant or non-public and provide accessors if needed.(áŞ©š
-squid:S3008"tRename this field "Widget_Compat_NotificationActionContainer" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥°¦ûÿÿÿÿ
-Usquid:S1444"@Make this "public static notification_icon_bg_color" field final(Äª•
-?squid:S1444"*Make this "public static time" field final(îı×ù
-‡"squid:ClassVariableVisibilityCheck"VMake fontWeight a static final constant or non-public and provide accessors if needed.(®°ÊĞûÿÿÿÿ
-ƒsquid:S3008"iRename this field "notification_action_background" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ä¼è¦ÿÿÿÿÿ
-‡squid:S3008"rRename this field "compat_button_inset_horizontal_material" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºşÜ
-isquid:S1444"OMake this "public static compat_button_padding_horizontal_material" field final(Ùİ®ûÿÿÿÿ
-`squid:S1444"LMake this "public static notification_template_part_chronometer" field final(ŠL
-`squid:S1444"FMake this "public static FontFamily_fontProviderAuthority" field final(«±Éşÿÿÿÿ
-"squid:ClassVariableVisibilityCheck"lMake notification_media_narrow_margin a static final constant or non-public and provide accessors if needed.(öüµÕüÿÿÿÿ
-›"squid:ClassVariableVisibilityCheck"oMake FontFamily_fontProviderFetchTimeout a static final constant or non-public and provide accessors if needed.(“şñ¥
-…squid:S3008"qRename this field "notification_template_part_chronometer" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠL
-Esquid:S1444"0Make this "public static right_side" field final(…÷Ğ
-}"squid:ClassVariableVisibilityCheck"QMake title a static final constant or non-public and provide accessors if needed.(Áò
-Tsquid:S1444"?Make this "public static notification_subtext_size" field final(¯ÏÚÒ
-"squid:ClassVariableVisibilityCheck"mMake notify_panel_notification_icon_bg a static final constant or non-public and provide accessors if needed.(ÄùªÏûÿÿÿÿ
-¡"squid:ClassVariableVisibilityCheck"pMake Widget_Compat_NotificationActionText a static final constant or non-public and provide accessors if needed.(ĞÍØØüÿÿÿÿ
-š"squid:ClassVariableVisibilityCheck"nMake notification_main_column_container a static final constant or non-public and provide accessors if needed.(¦ğÔ”
-"squid:ClassVariableVisibilityCheck"VMake FontFamily a static final constant or non-public and provide accessors if needed.(¹ô‚m
-1squid:S2386"Make this member "protected".(¹ô‚m
-"squid:ClassVariableVisibilityCheck"bMake notification_bg_normal a static final constant or non-public and provide accessors if needed.(•–ïß
-„squid:S3008"oRename this field "FontFamily_fontProviderFetchStrategy" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°­Šö
-Jsquid:S1444"5Make this "public static notification_bg" field final(›¸ï¤
-†squid:S3008"lRename this field "notification_content_margin_start" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üŸØ¡şÿÿÿÿ
-ƒ"squid:ClassVariableVisibilityCheck"WMake chronometer a static final constant or non-public and provide accessors if needed.(ÃÎÆ£
-Usquid:S1444"@Make this "public static notification_bg_low_normal" field final(Úø—ï
-¢"squid:ClassVariableVisibilityCheck"qMake notification_small_icon_size_as_large a static final constant or non-public and provide accessors if needed.(¯†Ë ıÿÿÿÿ
-xsquid:S3008"cRename this field "FontFamilyFont_fontStyle" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿÌ»Â
-Œsquid:S3008"rRename this field "TextAppearance_Compat_Notification_Info" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â¬èËüÿÿÿÿ
-¦"squid:ClassVariableVisibilityCheck"uMake compat_button_padding_horizontal_material a static final constant or non-public and provide accessors if needed.(Ùİ®ûÿÿÿÿ
-¤"squid:ClassVariableVisibilityCheck"sMake TextAppearance_Compat_Notification_Info a static final constant or non-public and provide accessors if needed.(Â¬èËüÿÿÿÿ
-Šsquid:S3008"pRename this field "compat_button_inset_vertical_material" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏËÍóùÿÿÿÿ
-ˆ"squid:ClassVariableVisibilityCheck"]Make fontProviderQuery a static final constant or non-public and provide accessors if needed.(Ù©î1
-‘"squid:ClassVariableVisibilityCheck"`Make notification_top_pad a static final constant or non-public and provide accessors if needed.(´ñıøÿÿÿÿ
-‚squid:S3008"hRename this field "notification_large_icon_width" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ı†ÇŸúÿÿÿÿ
-_squid:S1444"JMake this "public static FontFamily_fontProviderFetchStrategy" field final(°­Šö
-Tsquid:S1118":Add a private constructor to hide the implicit public one.(ˆ©ÖÀüÿÿÿÿ

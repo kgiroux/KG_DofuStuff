@@ -27,7 +27,6 @@ public class ItemCharacterAdapter  extends RecyclerView.Adapter<ItemCharacterHol
     @Override
     public ItemCharacterHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ItemCharacterHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_character_view_holder,parent,false));
-
     }
 
     @Override

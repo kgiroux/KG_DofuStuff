@@ -68,7 +68,7 @@ public class AlmanaxAdapter extends RecyclerView.Adapter {
             listUI.put("gifVImageView",viewHolder.getImagesAlamanax());
             imageLoaderTask.setListObject(listUI);
             imageLoaderTask.setActivity(getActivity());
-            imageLoaderTask.setJSON(false);
+            imageLoaderTask.setJson(false);
             imageLoaderTask.setTypeMine(TypeMine.IMAGE_PNG);
             imageLoaderTask.execute();
         }

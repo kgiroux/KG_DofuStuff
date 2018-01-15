@@ -1,7 +1,0 @@
-
-™%squid:RedundantThrowsDeclarationCheck"jRemove the declaration of thrown exception 'java.lang.NumberFormatException' which is a runtime exception.(íëªÖ
-Isquid:S1066"/Merge this if statement with the enclosing one.(±´²ãÿÿÿÿÿ
-nsquid:HiddenFieldCheck"IRename "characteristicClasses" which hides the field declared at line 35.(Î£ÆÕÿÿÿÿÿ
-isquid:HiddenFieldCheck"IRename "characteristicClasses" which hides the field declared at line 35.(“Õ Ë
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¦•ÁÚúÿÿÿÿ8¬…Êô+
-Esquid:S1172"+Remove this unused method parameter "name".(½±¡ýûÿÿÿÿ

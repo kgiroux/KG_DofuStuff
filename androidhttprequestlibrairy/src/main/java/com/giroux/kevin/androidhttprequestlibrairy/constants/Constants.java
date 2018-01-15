@@ -45,8 +45,7 @@ public class Constants {
         String retunrString = cst;
         if(cst != null){
             for (String s: params) {
-                retunrString = cst.replaceFirst("\\{",s);
-                retunrString = cst.replaceFirst("\\}","");
+                retunrString = cst.replaceFirst("\\{",s).replaceFirst("\\}","");
             }
         }
 

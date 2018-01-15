@@ -66,6 +66,6 @@ dependencies {
     annotationProcessor 'com.android.databinding:compiler:3.0.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
-    implementation 'com.giroux.kevin.dofustuff:commons:0.1.1-SNAPSHOT'
+    implementation 'com.giroux.kevin.dofustuff:commons:0.1.2-SNAPSHOT'
     //implementation files('libs/commons-0.1.0-SNAPSHOT.jar')
 }

@@ -1,5 +1,0 @@
-
-Tsquid:UselessImportCheck"2Remove this unused import 'io.realm.log.LogLevel'.(ç“®é
-Tsquid:UselessImportCheck"2Remove this unused import 'io.realm.log.RealmLog'.(Ûãÿ»
-hsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(∞Ô«Â¸ˇˇˇˇ
-lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œí≈Í¸ˇˇˇˇ

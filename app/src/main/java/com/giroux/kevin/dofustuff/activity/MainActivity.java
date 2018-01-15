@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Realm realm;
-    private RealmConfiguration config;
     private CharacterAdapter adapter;
     private RealmResults<Character> characters;
     private RecyclerView recyclerView;
@@ -61,8 +60,6 @@ public class MainActivity extends AppCompatActivity
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setHasFixedSize(false);
         recyclerView.setNestedScrollingEnabled(false);
-        config = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
-
         realm = Realm.getDefaultInstance();
         try{
             PrimaryKeyFactory.getInstance().initialize(realm);

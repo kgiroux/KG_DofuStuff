@@ -26,7 +26,12 @@ import android.widget.Toast;
 
 import com.giroux.kevin.dofustuff.R;
 import com.giroux.kevin.dofustuff.activity.MainActivity;
+import com.giroux.kevin.dofustuff.commons.security.PasswordAlgo;
 import com.giroux.kevin.dofustuff.constants.Constants;
+import com.giroux.kevin.dofustuff.network.TokenGenerateTask;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import io.realm.ObjectServerError;
 import io.realm.SyncCredentials;
@@ -149,7 +154,8 @@ public class LoginActivity extends AppCompatActivity implements SyncUser.Callbac
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            SyncUser.loginAsync(SyncCredentials.usernamePassword(email, password, false), Constants.AUTH_URL, this);
+            String encryptedPassword = PasswordAlgo.encryptSHA512(password);
+            SyncUser.loginAsync(SyncCredentials.usernamePassword(email, encryptedPassword, false), Constants.AUTH_URL, this);
         }
     }
 
@@ -210,6 +216,10 @@ public class LoginActivity extends AppCompatActivity implements SyncUser.Callbac
         editor.putString("email",email);
         editor.putString("password",password);
         editor.apply();
+
+        Map<String, String> paramStr = new HashMap<>();
+        String url = Constants.TOKEN_URL;
+        TokenGenerateTask tokenGenerateTask = new TokenGenerateTask(url,"PUT",paramStr);
 
         startActivity(new Intent(this, MainActivity.class));
         finish();

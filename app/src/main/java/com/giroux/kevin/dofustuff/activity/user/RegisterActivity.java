@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.giroux.kevin.dofustuff.R;
+import com.giroux.kevin.dofustuff.commons.security.PasswordAlgo;
 
 import io.realm.ObjectServerError;
 import io.realm.SyncCredentials;
@@ -100,7 +101,10 @@ public class RegisterActivity extends AppCompatActivity implements SyncUser.Call
             focusView.requestFocus();
         } else {
             showProgress(true);
-            SyncUser.loginAsync(SyncCredentials.usernamePassword(username, password, true), AUTH_URL, new SyncUser.Callback<SyncUser>() {
+
+            String encryptedPassword = PasswordAlgo.encryptSHA512(password);
+
+            SyncUser.loginAsync(SyncCredentials.usernamePassword(username, encryptedPassword, true), AUTH_URL, new SyncUser.Callback<SyncUser>() {
                 @Override
                 public void onSuccess(SyncUser user) {
                     registrationComplete(user);

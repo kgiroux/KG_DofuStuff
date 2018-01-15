@@ -8,20 +8,28 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.giroux.kevin.dofustuff.R;
 import com.giroux.kevin.dofustuff.activity.MainActivity;
 import com.giroux.kevin.dofustuff.activity.user.LoginActivity;
 import com.giroux.kevin.dofustuff.activity.user.RegisterActivity;
+import com.giroux.kevin.dofustuff.activity.user.UserManager;
+import com.giroux.kevin.dofustuff.commons.security.PasswordAlgo;
+import com.giroux.kevin.dofustuff.constants.Constants;
 
+import io.realm.ObjectServerError;
 import io.realm.Realm;
+import io.realm.SyncCredentials;
+import io.realm.SyncUser;
 import io.realm.log.LogLevel;
 import io.realm.log.RealmLog;
 
-public class WelcomeActivity extends AppCompatActivity {
-    Handler handler = new Handler();
-
+public class WelcomeActivity extends AppCompatActivity implements SyncUser.Callback<SyncUser>{
+    private Handler handler = new Handler();
+    public String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         long SPLASH_LENGTH = 3000;
@@ -34,7 +42,7 @@ public class WelcomeActivity extends AppCompatActivity {
             PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
             String version = pInfo.versionName;
             // Récupération du TextView permettant l'affichage de la version
-            TextView versionNumber = (TextView) findViewById (R.id.versionNumber);
+            TextView versionNumber = findViewById (R.id.versionNumber);
             versionNumber.setText (version);
         }catch (PackageManager.NameNotFoundException e ){
             e.printStackTrace ();
@@ -42,21 +50,49 @@ public class WelcomeActivity extends AppCompatActivity {
 
 		/* Affichage du SplashScreen pendant la durée SPLASH_LENGTH */
         handler.postDelayed(() -> {
-
             SharedPreferences preferences = this.getSharedPreferences("com.giroux.kevin.dofustuff", Context.MODE_PRIVATE);
-            String email = preferences.getString("email","");
-            Intent intent;
-            if(!email.equals("")){
-                intent = new Intent(WelcomeActivity.this, LoginActivity.class);
+            email = preferences.getString("email","");
+            String password = preferences.getString("password","");
+            String encryptedPassword = PasswordAlgo.encryptSHA512(password);
+            if(!"".equals(email) && !"".equals(password)){
+                SyncUser.loginAsync(SyncCredentials.usernamePassword(email, encryptedPassword, false), Constants.AUTH_URL, this);
             }else{
-                intent = new Intent(WelcomeActivity.this, RegisterActivity.class);
+                Intent intent = new Intent(WelcomeActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
-            // On Lance l'activité MainActivity lorsqu'on a atteint le temps SPLASH_LENGTH
-            startActivity(intent);
-            finish();
         }, SPLASH_LENGTH);
 
 
 
+    }
+
+    @Override
+    public void onSuccess(SyncUser result) {
+        loginComplete(result);
+    }
+
+    private void loginComplete(SyncUser user) {
+        UserManager.setActiveUser(user);
+        Toast.makeText(this,"Welcome back " + email, Toast.LENGTH_LONG).show();
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
+    }
+
+    @Override
+    public void onError(ObjectServerError error) {
+        String errorMsg;
+        switch (error.getErrorCode()) {
+            case UNKNOWN_ACCOUNT:
+                errorMsg = "Account does not exists.";
+                break;
+            case INVALID_CREDENTIALS:
+                errorMsg = "The provided credentials are invalid!"; // This message covers also expired account token
+                break;
+            default:
+                errorMsg = error.toString();
+        }
+        Toast.makeText(this,"Failed to connect", Toast.LENGTH_LONG).show();
+        startActivity(new Intent(this,LoginActivity.class));
+        Log.e("ErrorRealm",errorMsg);
     }
 }
