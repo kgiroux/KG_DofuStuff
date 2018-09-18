@@ -6,23 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.Spinner;
-
-import com.giroux.kevin.dofustuff.R;
-import com.giroux.kevin.dofustuff.databinding.ActivityCreateBinding;
-import com.giroux.kevin.dofustuff.dto.Character;
-import com.giroux.kevin.dofustuff.dto.SexType;
-import com.giroux.kevin.dofustuff.dto.TypeCharacteristic;
-
-import org.apache.commons.lang3.StringUtils;
-
+import android.widget.*;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.realm.Realm;
+import com.giroux.kevin.dofustuff.R;
+import com.giroux.kevin.dofustuff.databinding.ActivityCreateBinding;
+import com.giroux.kevin.dofustuff.commons.characters.Character;
+import com.giroux.kevin.dofustuff.commons.characters.SexType;
+import com.giroux.kevin.dofustuff.commons.characters.TypeCharacteristic;
+import org.apache.commons.lang3.StringUtils;
 import pl.droidsonroids.gif.GifImageView;
 
 public class CreateActivity extends AppCompatActivity implements Toolbar.OnClickListener, AdapterView.OnItemSelectedListener {
@@ -40,14 +32,12 @@ public class CreateActivity extends AppCompatActivity implements Toolbar.OnClick
     EditText caracteristicVitalityValue;
     private Character character;
     private GifImageView gifImageView;
-    private Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final ActivityCreateBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_create);
         ButterKnife.bind(this);
-        realm = Realm.getDefaultInstance();
         character = new Character();
         character.initCharacter();
         binding.setCharacter(character);
@@ -56,7 +46,7 @@ public class CreateActivity extends AppCompatActivity implements Toolbar.OnClick
         toolbar.setOnClickListener(this);
         toolbar.setLogo(R.drawable.arrow_left_bold);
         toolbar.setNavigationOnClickListener(this);
-        Spinner spinner = (Spinner) findViewById(R.id.classGame);
+        Spinner spinner = findViewById(R.id.classGame);
         gifImageView = findViewById(R.id.createCharacterGif);
         gifImageView.setImageResource(R.drawable.dofus_logosizechange);
 
@@ -78,18 +68,8 @@ public class CreateActivity extends AppCompatActivity implements Toolbar.OnClick
             RadioGroup radioGroup = findViewById(R.id.radioGroupSex);
             int id = radioGroup.getCheckedRadioButtonId();
             handleDataBindingCharacter(id);
-            if(realm.isInTransaction()){
-                realm.cancelTransaction();
-            }
 
             try{
-                realm.executeTransactionAsync(realm -> {
-                    Log.i("Insert", "Insert start");
-                    realm.insert(character);
-                }, () -> {
-                    Log.i("Insert", "Insert complete");
-                    finish();
-                }, error -> Log.i("Insert","Error " + error.getMessage()));
 
             }catch (Exception e){
                 Log.e("Error", "onClick: "+e.getLocalizedMessage() );
@@ -143,8 +123,5 @@ public class CreateActivity extends AppCompatActivity implements Toolbar.OnClick
     @Override
     protected void onPause() {
         super.onPause();
-        if(realm.isInTransaction()){
-            realm.cancelTransaction();
-        }
     }
 }

@@ -1,21 +1,16 @@
 package com.giroux.kevin.dofustuff.viewholder;
 
 import android.app.Activity;
-import android.content.ClipData;
-import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.giroux.kevin.dofustuff.R;
 import com.giroux.kevin.dofustuff.activity.character.fragment.ItemFragment;
 import com.giroux.kevin.dofustuff.activity.search.SearchItemActivity;
 import com.giroux.kevin.dofustuff.commons.item.Item;
-import com.giroux.kevin.dofustuff.dto.Character;
 
 /**
  * Created by girouxkevin on 25/10/2017.

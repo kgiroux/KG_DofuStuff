@@ -6,9 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.giroux.kevin.dofustuff.R;
 
-import io.realm.log.LogLevel;
-import io.realm.log.RealmLog;
-
 
 public class ShortCutActivity extends AppCompatActivity {
 

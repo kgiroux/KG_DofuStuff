@@ -8,24 +8,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.giroux.kevin.dofustuff.R;
 import com.giroux.kevin.dofustuff.adapter.ItemCharacterAdapter;
 import com.giroux.kevin.dofustuff.commons.item.Item;
 import com.giroux.kevin.dofustuff.commons.item.ItemCategory;
-import com.giroux.kevin.dofustuff.dto.Character;
+import com.giroux.kevin.dofustuff.commons.characters.Character;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import io.realm.Realm;
 
 /**
  * Created by kevin on 15/12/2016.
  */
 
 public class ItemFragment extends Fragment {
-    private Realm realm;
     private Character character;
 
     public ItemFragment() {
@@ -160,10 +156,7 @@ public class ItemFragment extends Fragment {
 
 
     public void initView(long id) {
-        realm = Realm.getDefaultInstance();
-        realm.beginTransaction();
-        character = realm.where(Character.class).equalTo("id", id).findFirst();
-        realm.commitTransaction();
+        // character = realm.where(Character.class).equalTo("id", id).findFirst();
     }
 
     @Override

@@ -13,36 +13,27 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.giroux.kevin.dofustuff.R;
-import com.giroux.kevin.dofustuff.activity.MainActivity;
+import com.giroux.kevin.dofustuff.activity.character.CreateActivity;
 import com.giroux.kevin.dofustuff.commons.security.PasswordAlgo;
 import com.giroux.kevin.dofustuff.constants.Constants;
-import com.giroux.kevin.dofustuff.network.TokenGenerateTask;
+import com.giroux.kevin.dofustuff.network.UserLoginTask;
+import org.apache.commons.codec.binary.Base64;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import io.realm.ObjectServerError;
-import io.realm.SyncCredentials;
-import io.realm.SyncUser;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity implements SyncUser.Callback<SyncUser> {
+public class LoginActivity extends AppCompatActivity {
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -50,9 +41,22 @@ public class LoginActivity extends AppCompatActivity implements SyncUser.Callbac
     private static final int REQUEST_READ_CONTACTS = 0;
 
     // UI references.
+    /**
+     * Email
+     */
     private AutoCompleteTextView mEmailView;
+    /**
+     * Password
+     */
     private EditText mPasswordView;
+
+    /**
+     * ProgressView
+     */
     private View mProgressView;
+    /**
+     * LoginformView
+     */
     private View mLoginFormView;
 
     @Override
@@ -60,9 +64,9 @@ public class LoginActivity extends AppCompatActivity implements SyncUser.Callbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        mEmailView = findViewById(R.id.email);
 
-        mPasswordView = (EditText) findViewById(R.id.password);
+        mPasswordView = findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener((textView, id, keyEvent) -> {
             if (id == R.id.login || id == EditorInfo.IME_NULL) {
                 attemptLogin();
@@ -70,7 +74,6 @@ public class LoginActivity extends AppCompatActivity implements SyncUser.Callbac
             }
             return false;
         });
-
         SharedPreferences preferences = this.getSharedPreferences("com.giroux.kevin.dofustuff",Context.MODE_PRIVATE);
         String email = preferences.getString("email","");
         String password = preferences.getString("password","");
@@ -78,7 +81,7 @@ public class LoginActivity extends AppCompatActivity implements SyncUser.Callbac
         mEmailView.setText(email);
         mPasswordView.setText(password);
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        Button mEmailSignInButton = findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(view -> attemptLogin());
 
         mLoginFormView = findViewById(R.id.login_form);
@@ -155,12 +158,18 @@ public class LoginActivity extends AppCompatActivity implements SyncUser.Callbac
             // perform the user login attempt.
             showProgress(true);
             String encryptedPassword = PasswordAlgo.encryptSHA512(password);
-            SyncUser.loginAsync(SyncCredentials.usernamePassword(email, encryptedPassword, false), Constants.AUTH_URL, this);
+
+            String key = new String(new Base64().encode((email+ ":" + encryptedPassword).getBytes()));
+            Map<String, String> paramMaps = new HashMap<>();
+            UserLoginTask userLoginTask = new UserLoginTask(Constants.USER_URL_LOGIN, com.giroux.kevin.androidhttprequestlibrairy.constants.Constants.METHOD_PUT, paramMaps);
+            Map<String,String> headerMaps = new HashMap<>();
+            headerMaps.put("Authorization", "Basic "+key);
+            userLoginTask.setExtraHeader(headerMaps);
+            userLoginTask.execute();
         }
     }
 
     private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
         return password.length() > 4;
     }
 
@@ -168,7 +177,7 @@ public class LoginActivity extends AppCompatActivity implements SyncUser.Callbac
      * Shows the progress UI and hides the login form.
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
-    private void showProgress(final boolean show) {
+    public void showProgress(final boolean show) {
         // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
         // for very easy animations. If available, use these APIs to fade-in
         // the progress spinner.
@@ -200,47 +209,12 @@ public class LoginActivity extends AppCompatActivity implements SyncUser.Callbac
         }
     }
 
-    @Override
-    public void onSuccess(SyncUser user) {
-        showProgress(false);
-        loginComplete(user);
-    }
-
-    private void loginComplete(SyncUser user) {
-        UserManager.setActiveUser(user);
-        SharedPreferences preferences = this.getSharedPreferences("com.giroux.kevin.dofustuff", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
-        editor.putString("email",email);
-        editor.putString("password",password);
-        editor.apply();
-
-        Map<String, String> paramStr = new HashMap<>();
-        String url = Constants.TOKEN_URL;
-        TokenGenerateTask tokenGenerateTask = new TokenGenerateTask(url,"PUT",paramStr);
-
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
-    }
-
-    @Override
-    public void onError(ObjectServerError error) {
-        showProgress(false);
-        String errorMsg;
-        switch (error.getErrorCode()) {
-            case UNKNOWN_ACCOUNT:
-                errorMsg = "Account does not exists.";
-                break;
-            case INVALID_CREDENTIALS:
-                errorMsg = "The provided credentials are invalid!"; // This message covers also expired account token
-                break;
-            default:
-                errorMsg = error.toString();
-        }
-        Toast.makeText(LoginActivity.this, errorMsg, Toast.LENGTH_LONG).show();
-        Log.e("ErrorRealm",errorMsg);
+    /**
+     * Change Activity
+     */
+    public void changeActivity(){
+        Intent intent = new Intent(this, CreateActivity.class);
+        this.startActivity(intent);
     }
 }
 

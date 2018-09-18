@@ -4,22 +4,14 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.util.Log;
-
 import com.giroux.kevin.androidhttprequestlibrairy.constants.Constants;
 import com.giroux.kevin.androidhttprequestlibrairy.constants.TypeMine;
-
+import com.giroux.kevin.dofustuff.error.ErrorWrapper;
+import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
@@ -41,6 +33,10 @@ public class AndroidHttpRequest extends AsyncTask<String[], Void, Object> {
   private String paramStr;
   private Uri.Builder builderURL;
   private int sizeBuffer;
+  protected int errorCode;
+  private ErrorWrapper errorWrapper;
+
+  private Map<String, String> extraHeader;
 
   public void setTypeMine(TypeMine typeMine) {
     this.typeMine = typeMine;
@@ -122,6 +118,7 @@ public class AndroidHttpRequest extends AsyncTask<String[], Void, Object> {
     this.setMethod(method);
     this.setListParam(paramStr);
     this.setListObject(new HashMap<String, Object>());
+    this.extraHeader = new HashMap<>();
     builderURL = new Uri.Builder();
   }
 
@@ -144,6 +141,7 @@ public class AndroidHttpRequest extends AsyncTask<String[], Void, Object> {
     this.listParam = (paramStr);
     builderURL = new Uri.Builder();
     this.typeMine = TypeMine.APPLICATION_JSON;
+    this.extraHeader = new HashMap<>();
     this.sizeBuffer = Constants.DEFAULT_SIZE;
   }
 
@@ -180,7 +178,10 @@ public class AndroidHttpRequest extends AsyncTask<String[], Void, Object> {
       urlConnection.setDoInput(true);
       //Send parameters
       urlConnection.setRequestMethod(this.method);
-      urlConnection.setRequestProperty("Content-Type", this.typeMine.toString() + this.encoding);
+      urlConnection.setRequestProperty("Content-Type", this.typeMine.toString() + ";charset=" + this.encoding);
+      for(Map.Entry<String, String> entrySet : extraHeader.entrySet()){
+        urlConnection.setRequestProperty(entrySet.getKey(), entrySet.getValue());
+      }
       if (this.method.equals(Constants.METHOD_POST)) {
         urlConnection.setDoOutput(true);
         if (this.getParamStr() != null) {
@@ -222,11 +223,11 @@ public class AndroidHttpRequest extends AsyncTask<String[], Void, Object> {
     if (this.paramStr == null) {
       this.paramStr = "";
     }
+    in = new BufferedInputStream(urlConnection.getInputStream());
     switch (urlConnection.getResponseCode()) {
       //200
       case HttpURLConnection.HTTP_OK:
         Log.e(Constants.TAG_ANDROID_HTTP_REQUEST, " Response OK");
-        in = new BufferedInputStream(urlConnection.getInputStream());
         urlConnection.getResponseMessage();
         urlConnection.getContentType();
         if (urlConnection.getContentType().equals(TypeMine.APPLICATION_JSON.toString() + ";charset=" + this.encoding.toLowerCase())) {
@@ -247,22 +248,37 @@ public class AndroidHttpRequest extends AsyncTask<String[], Void, Object> {
           json = str;
         }
         in.close();
+        errorCode = HttpURLConnection.HTTP_OK;
         break;
       // 204
       case HttpURLConnection.HTTP_NO_CONTENT:
         Log.d(Constants.TAG_ANDROID_HTTP_REQUEST, Constants.createLog(Constants.CST_NO_CONTENT));
+        errorWrapper = new Gson().fromJson(streamToString(in), ErrorWrapper.class);
+        errorCode = HttpURLConnection.HTTP_NO_CONTENT;
         break;
       // 400
       case HttpURLConnection.HTTP_BAD_REQUEST:
         Log.e(Constants.TAG_ANDROID_HTTP_REQUEST, Constants.createLog(Constants.CST_BAD_REQUEST, url, this.method));
+        errorWrapper = new Gson().fromJson(streamToString(in), ErrorWrapper.class);
+        errorCode = HttpURLConnection.HTTP_BAD_REQUEST;
         break;
-      //401
+      //404
       case HttpURLConnection.HTTP_NOT_FOUND:
         Log.e(Constants.TAG_ANDROID_HTTP_REQUEST, Constants.createLog(Constants.CST_NO_FOUND, url, this.paramStr, this.method));
+        errorWrapper = new Gson().fromJson(streamToString(in), ErrorWrapper.class);
+        errorCode = HttpURLConnection.HTTP_NOT_FOUND;
+        break;
+      //401
+      case HttpURLConnection.HTTP_UNAUTHORIZED:
+        Log.e(Constants.TAG_ANDROID_HTTP_REQUEST, Constants.createLog(Constants.CST_HTTP_UNAUTHORIZED, String.valueOf(urlConnection.getResponseCode())));
+        errorWrapper = new Gson().fromJson(streamToString(in), ErrorWrapper.class);
+        errorCode = HttpURLConnection.HTTP_UNAUTHORIZED;
         break;
       // 405
       case HttpURLConnection.HTTP_BAD_METHOD:
         Log.d(Constants.TAG_ANDROID_HTTP_REQUEST, Constants.createLog(Constants.CST_BAD_METHOD, url, this.method));
+        errorWrapper = new Gson().fromJson(streamToString(in), ErrorWrapper.class);
+        errorCode = HttpURLConnection.HTTP_BAD_METHOD;
         break;
       // 408
       case HttpURLConnection.HTTP_CLIENT_TIMEOUT:
@@ -272,10 +288,14 @@ public class AndroidHttpRequest extends AsyncTask<String[], Void, Object> {
         if (urlConnection.getResponseCode() != HttpURLConnection.HTTP_OK) {
           Log.e(Constants.TAG_ANDROID_HTTP_REQUEST, Constants.createLog(Constants.CST_TIMEOUT, url, this.paramStr));
         }
+        errorWrapper = new Gson().fromJson(streamToString(in), ErrorWrapper.class);
+        errorCode = HttpURLConnection.HTTP_CLIENT_TIMEOUT;
         break;
       // 500
       case HttpURLConnection.HTTP_INTERNAL_ERROR:
         Log.e(Constants.TAG_ANDROID_HTTP_REQUEST, Constants.createLog(Constants.CST_INTERNAL_ERROR, url, this.paramStr));
+        errorWrapper = new Gson().fromJson(streamToString(in), ErrorWrapper.class);
+        errorCode = HttpURLConnection.HTTP_INTERNAL_ERROR;
         break;
       default:
         Log.e(Constants.TAG_ANDROID_HTTP_REQUEST, Constants.createLog(Constants.CST_OTHER_ERROR, String.valueOf(urlConnection.getResponseCode())));
@@ -397,5 +417,25 @@ public class AndroidHttpRequest extends AsyncTask<String[], Void, Object> {
       Log.e(Constants.TAG_ANDROID_HTTP_REQUEST, "Error decoding stream", ex);
     }
     return strb.toString();
+  }
+
+  /**
+   * Recupération du code erreur
+   * @return code d'erreur
+   */
+  public int getErrorCode() {
+    return errorCode;
+  }
+
+  /**
+   * Recupération de l'erreur
+   * @return
+   */
+  public ErrorWrapper getErrorWrapper() {
+    return errorWrapper;
+  }
+
+  public void setExtraHeader(Map<String, String> extraHeader) {
+    this.extraHeader = extraHeader;
   }
 }

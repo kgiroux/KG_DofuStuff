@@ -5,7 +5,7 @@
     <data>
         <variable
             name="character"
-            type="com.giroux.kevin.dofustuff.dto.Character" />
+            type="com.giroux.kevin.dofustuff.commons.characters.Character" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout

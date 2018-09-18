@@ -11,10 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import com.giroux.kevin.dofustuff.R;
 import com.giroux.kevin.dofustuff.activity.administration.AdministrationActivity;
 import com.giroux.kevin.dofustuff.activity.almanax.AlmanaxActivity;
@@ -22,19 +20,11 @@ import com.giroux.kevin.dofustuff.activity.character.CharacterInformationActivit
 import com.giroux.kevin.dofustuff.activity.character.CreateActivity;
 import com.giroux.kevin.dofustuff.activity.search.SearchItemActivity;
 import com.giroux.kevin.dofustuff.adapter.CharacterAdapter;
-import com.giroux.kevin.dofustuff.database.PrimaryKeyFactory;
-import com.giroux.kevin.dofustuff.dto.Character;
-
-import io.realm.Realm;
-import io.realm.RealmConfiguration;
-import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Realm realm;
     private CharacterAdapter adapter;
-    private RealmResults<Character> characters;
     private RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,24 +50,16 @@ public class MainActivity extends AppCompatActivity
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setHasFixedSize(false);
         recyclerView.setNestedScrollingEnabled(false);
-        realm = Realm.getDefaultInstance();
-        try{
-            PrimaryKeyFactory.getInstance().initialize(realm);
-        }catch (IllegalStateException ex){
-            Log.i("Init","Nothing to do");
-        }
 
-        adapter = new CharacterAdapter(realm.where(Character.class).findAll(),getApplicationContext());
-        recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        //adapter = new CharacterAdapter();
+        //recyclerView.setAdapter(adapter);
+        //adapter.notifyDataSetChanged();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         recyclerView.setAdapter(null);
-        realm.close();
-
     }
 
     @Override

@@ -35,6 +35,7 @@ public class Constants {
     public static final String METHOD_RESULT_OK = "OK";
     public static final String CST_TIMEOUT ="Timeout for the request : {} with the parameter {} . Try to check the URL or increase the timeout value";
     public static final String CST_NO_CONTENT = "No content to return from the server";
+    public static final String CST_HTTP_UNAUTHORIZED = "Access to this API UNAUTHORIZED {}";
     public static final String CST_BAD_REQUEST = "There is a problem with the request {} with {} parameter. Please check the result" ;
     public static final String CST_INTERNAL_ERROR = "Serveur Error. Please check the status of the server";
     public static final String CST_OTHER_ERROR = "Another error appear during the request : {}";

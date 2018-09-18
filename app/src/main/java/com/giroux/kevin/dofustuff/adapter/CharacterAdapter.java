@@ -4,34 +4,26 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-
 import com.giroux.kevin.dofustuff.R;
-import com.giroux.kevin.dofustuff.dto.Character;
+import com.giroux.kevin.dofustuff.commons.characters.Character;
 import com.giroux.kevin.dofustuff.viewholder.CharacterViewHolder;
-
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import io.realm.OrderedRealmCollection;
-import io.realm.RealmRecyclerViewAdapter;
-import io.realm.RealmResults;
-
 /**
  * Created by kevin on 11/12/2016.
  */
 
-public class CharacterAdapter extends RealmRecyclerViewAdapter<Character, CharacterViewHolder> {
+public class CharacterAdapter extends RecyclerView.Adapter<CharacterViewHolder>{
     private List<Character> characterList;
 
     private Context context;
 
-    public CharacterAdapter(OrderedRealmCollection<Character> data,Context context){
-        super(data,true);
+    public CharacterAdapter(List<Character> data, Context context){
         this.context = context;
         characterList = new ArrayList<>();
-        setHasStableIds(true);
     }
 
     @Override
@@ -41,7 +33,7 @@ public class CharacterAdapter extends RealmRecyclerViewAdapter<Character, Charac
 
     @Override
     public void onBindViewHolder(CharacterViewHolder characterViewHolder, int position) {
-            Character character = getItem(position);
+            Character character = characterList.get(position);
             characterViewHolder.setCharacterLevel(String.valueOf(character.getLevel()));
             characterViewHolder.setCharacterName(character.getName());
             characterViewHolder.setContext(context);
@@ -57,6 +49,11 @@ public class CharacterAdapter extends RealmRecyclerViewAdapter<Character, Charac
     @Override
     public long getItemId(int index) {
         //noinspection ConstantConditions
-        return getItem(index).getId();
+        return characterList.get(index).getId();
+    }
+
+    @Override
+    public int getItemCount() {
+        return 0;
     }
 }

@@ -4,11 +4,9 @@ import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-
 import com.bumptech.glide.Glide;
 import com.giroux.kevin.dofustuff.R;
 import com.giroux.kevin.dofustuff.commons.item.Item;
-import com.giroux.kevin.dofustuff.dto.ItemCharacter;
 import com.giroux.kevin.dofustuff.viewholder.ItemViewHolder;
 
 import java.util.ArrayList;

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.giroux.kevin.androidhttprequestlibrairy.constants.TypeMine;
 import com.giroux.kevin.dofustuff.R;
-import com.giroux.kevin.dofustuff.dto.AlmanaxInfo;
+import com.giroux.kevin.dofustuff.commons.characters.AlmanaxInfo;
 import com.giroux.kevin.dofustuff.network.ImageLoaderTask;
 import com.giroux.kevin.dofustuff.viewholder.AlmanaxViewHolder;
 
